@@ -1,1 +1,1 @@
-pub mod clazz;
+pub mod class;

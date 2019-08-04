@@ -1,1 +1,1 @@
-mod clazz_test;
+mod class_test;
