@@ -8,5 +8,5 @@
 
 
 
-[Travis-Img]:https://travis-ci.org/linianhui/jvm.svg?branch=master
-[Travis-Url]:https://travis-ci.org/linianhui/jvm
+[Travis-Img]:https://travis-ci.org/linianhui/div.svg?branch=master
+[Travis-Url]:https://travis-ci.org/linianhui/div

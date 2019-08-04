@@ -1,5 +1,5 @@
 [package]
-name = "jvm"
+name = "div"
 version = "0.1.0"
 authors = ["lnh <lnhcode@outlook.com>"]
 edition = "2018"
