@@ -1,3 +1,1 @@
-pub mod jvm;
-
-mod jvm_test;
+pub mod clazz;
