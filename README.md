@@ -1,8 +1,8 @@
 # CI
 
-| CI Service | Build Platform | Stauts                            |
-| ---------- | -------------- | --------------------------------- |
-| Travis     | Linux          | [![Travis-Img]][Travis-Url]       |
+| CI Service | Build Platform      | Stauts                      |
+| ---------- | ------------------- | --------------------------- |
+| Travis     | linux, osx, windows | [![Travis-Img]][Travis-Url] |
 
 
 
