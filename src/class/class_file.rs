@@ -18,17 +18,20 @@
 //    attribute_info attributes[attributes_count];
 //}
 
+use crate::class::from_be_bytes_to_u16;
 use crate::class::from_be_bytes_to_u32;
 
 #[derive(Debug)]
 pub struct ClassFile {
     pub magic: u32,
+    pub minor_version: u16,
 }
 
 impl ClassFile {
     pub fn from(bytes: &[u8]) -> ClassFile {
         ClassFile {
             magic: from_be_bytes_to_u32(&bytes[0..4]),
+            minor_version: from_be_bytes_to_u16(&bytes[4..6]),
         }
     }
 }
