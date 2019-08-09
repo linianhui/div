@@ -6,6 +6,7 @@ fn test_class_file() {
     let class_file = read_class_file();
     assert_eq!(0xCA_FE_BA_BE, class_file.magic);
     assert_eq!(0x00_00, class_file.minor_version);
+    assert_eq!(0x00_34, class_file.major_version);
 }
 
 #[test]
@@ -18,6 +19,12 @@ fn test_class_file_magic() {
 fn test_class_file_minor_version() {
     let class_file = read_class_file();
     assert_eq!(0x00_00, class_file.minor_version);
+}
+
+#[test]
+fn test_class_file_major_version() {
+    let class_file = read_class_file();
+    assert_eq!(0x00_34, class_file.major_version);
 }
 
 fn read_class_file() -> ClassFile {

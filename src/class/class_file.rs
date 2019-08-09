@@ -25,6 +25,7 @@ use crate::class::from_be_bytes_to_u32;
 pub struct ClassFile {
     pub magic: u32,
     pub minor_version: u16,
+    pub major_version: u16,
 }
 
 impl ClassFile {
@@ -32,6 +33,7 @@ impl ClassFile {
         ClassFile {
             magic: from_be_bytes_to_u32(&bytes[0..4]),
             minor_version: from_be_bytes_to_u16(&bytes[4..6]),
+            major_version: from_be_bytes_to_u16(&bytes[6..8]),
         }
     }
 }
