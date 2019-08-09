@@ -1,12 +1,34 @@
+// https://docs.oracle.com/javase/specs/jvms/se12/html/jvms-4.html
+//ClassFile {
+//    u4             magic;
+//    u2             minor_version;
+//    u2             major_version;
+//    u2             constant_pool_count;
+//    cp_info        constant_pool[constant_pool_count-1];
+//    u2             access_flags;
+//    u2             this_class;
+//    u2             super_class;
+//    u2             interfaces_count;
+//    u2             interfaces[interfaces_count];
+//    u2             fields_count;
+//    field_info     fields[fields_count];
+//    u2             methods_count;
+//    method_info    methods[methods_count];
+//    u2             attributes_count;
+//    attribute_info attributes[attributes_count];
+//}
+
+use crate::class::from_be_bytes_to_u32;
+
 #[derive(Debug)]
 pub struct ClassFile {
     pub magic: u32,
 }
 
 impl ClassFile {
-    pub fn from() -> ClassFile {
+    pub fn from(bytes: &[u8]) -> ClassFile {
         ClassFile {
-            magic: 0xCA_FE_BA_BE,
+            magic: from_be_bytes_to_u32(&bytes[0..4]),
         }
     }
 }
