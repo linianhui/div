@@ -1,4 +1,5 @@
 mod class_file_test;
+mod constant_double_test;
 mod constant_float_test;
 mod constant_integer_test;
 mod constant_kind_test;
@@ -22,6 +23,13 @@ fn test_from_be_bytes_to_u32() {
 }
 
 #[test]
+fn test_from_be_bytes_to_u64() {
+    let bytes = [0x12, 0x34, 0x56, 0x78, 0x9A, 0xBC, 0xDE, 0xF0];
+    let u64_value = class::from_be_bytes_to_u64(&bytes);
+    assert_eq!(0x12_34_56_78_9A_BC_DE_F0, u64_value);
+}
+
+#[test]
 fn test_from_be_bytes_to_i32() {
     let bytes = [0x12, 0x34, 0x56, 0x78];
     let i32_value = class::from_be_bytes_to_i32(&bytes);
@@ -37,7 +45,14 @@ fn test_from_be_bytes_to_i64() {
 
 #[test]
 fn test_from_be_bytes_to_f32() {
-    let bytes = [0x40, 0x49, 0x0F, 0xDA];
+    let bytes = [0x40, 0x49, 0x0F, 0xDB];
     let f32_value = class::from_be_bytes_to_f32(&bytes);
-    assert_eq!(3.1415926f32, f32_value);
+    assert_eq!(3.1415_9265_f32, f32_value);
+}
+
+#[test]
+fn test_from_be_bytes_to_f64() {
+    let bytes = [0x40, 0x09, 0x21, 0xFB, 0x54, 0x43, 0xD1, 0xA8];
+    let f64_value = class::from_be_bytes_to_f64(&bytes);
+    assert_eq!(3.1415_9265_3579_3978_f64, f64_value);
 }
