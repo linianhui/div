@@ -6,6 +6,7 @@ mod constant_float;
 mod constant_integer;
 mod constant_kind;
 mod constant_long;
+mod constant_method_ref;
 pub use class_file::ClassFile;
 pub use constant_class::ConstantClass;
 pub use constant_double::ConstantDouble;
@@ -14,6 +15,7 @@ pub use constant_float::ConstantFloat;
 pub use constant_integer::ConstantInteger;
 pub use constant_kind::ConstantKind;
 pub use constant_long::ConstantLong;
+pub use constant_method_ref::ConstantMethodRef;
 
 pub fn from_be_bytes_to_u16(bytes: &[u8]) -> u16 {
     u16::from_be_bytes([bytes[0], bytes[1]])
