@@ -6,6 +6,7 @@ mod constant_field_ref_test;
 mod constant_float_test;
 mod constant_integer_test;
 mod constant_interface_method_ref_test;
+mod constant_invoke_dynamic_test;
 mod constant_long_test;
 mod constant_method_handle_test;
 mod constant_method_ref_test;
