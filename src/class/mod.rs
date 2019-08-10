@@ -9,6 +9,7 @@ mod constant_long;
 mod constant_method_ref;
 mod constant_name_and_type;
 mod constant_tag;
+mod method_handle_reference_kind;
 pub use class_file::ClassFile;
 pub use constant_class::ConstantClass;
 pub use constant_double::ConstantDouble;
@@ -20,6 +21,7 @@ pub use constant_long::ConstantLong;
 pub use constant_method_ref::ConstantMethodRef;
 pub use constant_name_and_type::ConstantNameAndType;
 pub use constant_tag::ConstantTag;
+pub use method_handle_reference_kind::MethodHandleReferenceKind;
 
 pub fn from_be_bytes_to_u16(bytes: &[u8]) -> u16 {
     u16::from_be_bytes([bytes[0], bytes[1]])

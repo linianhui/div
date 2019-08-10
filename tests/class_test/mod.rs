@@ -9,6 +9,7 @@ mod constant_long_test;
 mod constant_method_ref_test;
 mod constant_name_and_type_test;
 mod constant_tag_test;
+mod method_handle_reference_kind_test;
 
 extern crate div;
 use div::class;
