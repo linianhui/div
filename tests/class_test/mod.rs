@@ -1,6 +1,7 @@
 mod class_file_test;
 mod constant_class_test;
 mod constant_double_test;
+mod constant_dynamic_test;
 mod constant_field_ref_test;
 mod constant_float_test;
 mod constant_integer_test;

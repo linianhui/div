@@ -1,6 +1,7 @@
 mod class_file;
 mod constant_class;
 mod constant_double;
+mod constant_dynamic;
 mod constant_field_ref;
 mod constant_float;
 mod constant_integer;
@@ -15,6 +16,7 @@ mod method_handle_reference_kind;
 pub use class_file::ClassFile;
 pub use constant_class::ConstantClass;
 pub use constant_double::ConstantDouble;
+pub use constant_dynamic::ConstantDynamic;
 pub use constant_field_ref::ConstantFieldRef;
 pub use constant_float::ConstantFloat;
 pub use constant_integer::ConstantInteger;
