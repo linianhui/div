@@ -1,4 +1,5 @@
 mod class_file_test;
+mod constant_class_test;
 mod constant_double_test;
 mod constant_float_test;
 mod constant_integer_test;

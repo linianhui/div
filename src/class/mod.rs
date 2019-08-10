@@ -1,10 +1,12 @@
 mod class_file;
+mod constant_class;
 mod constant_double;
 mod constant_float;
 mod constant_integer;
 mod constant_kind;
 mod constant_long;
 pub use class_file::ClassFile;
+pub use constant_class::ConstantClass;
 pub use constant_double::ConstantDouble;
 pub use constant_float::ConstantFloat;
 pub use constant_integer::ConstantInteger;
