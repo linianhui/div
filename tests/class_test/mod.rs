@@ -1,4 +1,5 @@
 mod class_file_test;
+mod constant_float_test;
 mod constant_integer_test;
 mod constant_kind_test;
 
@@ -24,4 +25,11 @@ fn test_from_be_bytes_to_i32() {
     let bytes = [0x12, 0x34, 0x56, 0x78];
     let i32_value = class::from_be_bytes_to_i32(&bytes);
     assert_eq!(0x12_34_56_78, i32_value);
+}
+
+#[test]
+fn test_from_be_bytes_to_f32() {
+    let bytes = [0x40, 0x49, 0x0F, 0xDA];
+    let f32_value = class::from_be_bytes_to_f32(&bytes);
+    assert_eq!(3.1415926f32, f32_value);
 }
