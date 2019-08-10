@@ -7,6 +7,7 @@ mod constant_integer_test;
 mod constant_interface_method_ref_test;
 mod constant_long_test;
 mod constant_method_ref_test;
+mod constant_name_and_type_test;
 mod constant_tag_test;
 
 extern crate div;

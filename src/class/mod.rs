@@ -7,6 +7,7 @@ mod constant_integer;
 mod constant_interface_method_ref;
 mod constant_long;
 mod constant_method_ref;
+mod constant_name_and_type;
 mod constant_tag;
 pub use class_file::ClassFile;
 pub use constant_class::ConstantClass;
@@ -17,6 +18,7 @@ pub use constant_integer::ConstantInteger;
 pub use constant_interface_method_ref::ConstantInterfaceMethodRef;
 pub use constant_long::ConstantLong;
 pub use constant_method_ref::ConstantMethodRef;
+pub use constant_name_and_type::ConstantNameAndType;
 pub use constant_tag::ConstantTag;
 
 pub fn from_be_bytes_to_u16(bytes: &[u8]) -> u16 {
