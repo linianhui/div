@@ -19,7 +19,8 @@
 //     attribute_info attributes[attributes_count];
 // }
 
-use crate::class::ByteReader;
+use crate::class::from_be_bytes_to_u16;
+use crate::class::from_be_bytes_to_u32;
 
 #[derive(Debug)]
 pub struct ClassFile {
@@ -31,12 +32,11 @@ pub struct ClassFile {
 
 impl ClassFile {
     pub fn from(bytes: &[u8]) -> ClassFile {
-        let mut reader = ByteReader::from(Box::from(bytes));
         ClassFile {
-            magic: reader.read_u32(),
-            minor_version: reader.read_u16(),
-            major_version: reader.read_u16(),
-            constant_pool_count: reader.read_u16(),
+            magic: from_be_bytes_to_u32(&bytes[0..4]),
+            minor_version: from_be_bytes_to_u16(&bytes[4..6]),
+            major_version: from_be_bytes_to_u16(&bytes[6..8]),
+            constant_pool_count: from_be_bytes_to_u16(&bytes[8..10]),
         }
     }
 }
