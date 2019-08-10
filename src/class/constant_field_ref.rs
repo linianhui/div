@@ -9,11 +9,11 @@ CONSTANT_Fieldref_info {
 */
 
 use crate::class::from_be_bytes_to_u16;
-use crate::class::ConstantKind;
+use crate::class::ConstantTag;
 
 #[derive(Debug)]
 pub struct ConstantFieldRef {
-    pub kind: ConstantKind,
+    pub tag: ConstantTag,
     pub class_index: u16,
     pub name_and_type_index: u16,
 }
@@ -21,7 +21,7 @@ pub struct ConstantFieldRef {
 impl ConstantFieldRef {
     pub fn from(bytes: &[u8]) -> ConstantFieldRef {
         ConstantFieldRef {
-            kind: ConstantKind::FieldRef,
+            tag: ConstantTag::FieldRef,
             class_index: from_be_bytes_to_u16(&bytes[0..2]),
             name_and_type_index: from_be_bytes_to_u16(&bytes[2..4]),
         }

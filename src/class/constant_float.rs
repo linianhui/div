@@ -8,18 +8,18 @@ CONSTANT_Float_info {
 */
 
 use crate::class::from_be_bytes_to_f32;
-use crate::class::ConstantKind;
+use crate::class::ConstantTag;
 
 #[derive(Debug)]
 pub struct ConstantFloat {
-    pub kind: ConstantKind,
+    pub tag: ConstantTag,
     pub value: f32,
 }
 
 impl ConstantFloat {
     pub fn from(bytes: &[u8]) -> ConstantFloat {
         ConstantFloat {
-            kind: ConstantKind::Float,
+            tag: ConstantTag::Float,
             value: from_be_bytes_to_f32(&bytes[0..4]),
         }
     }

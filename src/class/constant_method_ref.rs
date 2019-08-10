@@ -9,11 +9,11 @@ CONSTANT_Methodref_info {
 */
 
 use crate::class::from_be_bytes_to_u16;
-use crate::class::ConstantKind;
+use crate::class::ConstantTag;
 
 #[derive(Debug)]
 pub struct ConstantMethodRef {
-    pub kind: ConstantKind,
+    pub tag: ConstantTag,
     pub class_index: u16,
     pub name_and_type_index: u16,
 }
@@ -21,7 +21,7 @@ pub struct ConstantMethodRef {
 impl ConstantMethodRef {
     pub fn from(bytes: &[u8]) -> ConstantMethodRef {
         ConstantMethodRef {
-            kind: ConstantKind::MethodRef,
+            tag: ConstantTag::MethodRef,
             class_index: from_be_bytes_to_u16(&bytes[0..2]),
             name_and_type_index: from_be_bytes_to_u16(&bytes[2..4]),
         }

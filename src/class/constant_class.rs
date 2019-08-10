@@ -8,18 +8,18 @@ CONSTANT_Class_info {
 */
 
 use crate::class::from_be_bytes_to_u16;
-use crate::class::ConstantKind;
+use crate::class::ConstantTag;
 
 #[derive(Debug)]
 pub struct ConstantClass {
-    pub kind: ConstantKind,
+    pub tag: ConstantTag,
     pub name_index: u16,
 }
 
 impl ConstantClass {
     pub fn from(bytes: &[u8]) -> ConstantClass {
         ConstantClass {
-            kind: ConstantKind::Class,
+            tag: ConstantTag::Class,
             name_index: from_be_bytes_to_u16(&bytes[0..2]),
         }
     }

@@ -8,18 +8,18 @@ CONSTANT_Integer_info {
 */
 
 use crate::class::from_be_bytes_to_i32;
-use crate::class::ConstantKind;
+use crate::class::ConstantTag;
 
 #[derive(Debug)]
 pub struct ConstantInteger {
-    pub kind: ConstantKind,
+    pub tag: ConstantTag,
     pub value: i32,
 }
 
 impl ConstantInteger {
     pub fn from(bytes: &[u8]) -> ConstantInteger {
         ConstantInteger {
-            kind: ConstantKind::Integer,
+            tag: ConstantTag::Integer,
             value: from_be_bytes_to_i32(&bytes[0..4]),
         }
     }

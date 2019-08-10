@@ -9,18 +9,18 @@ CONSTANT_Double_info {
 */
 
 use crate::class::from_be_bytes_to_f64;
-use crate::class::ConstantKind;
+use crate::class::ConstantTag;
 
 #[derive(Debug)]
 pub struct ConstantDouble {
-    pub kind: ConstantKind,
+    pub tag: ConstantTag,
     pub value: f64,
 }
 
 impl ConstantDouble {
     pub fn from(bytes: &[u8]) -> ConstantDouble {
         ConstantDouble {
-            kind: ConstantKind::Double,
+            tag: ConstantTag::Double,
             value: from_be_bytes_to_f64(&bytes[0..8]),
         }
     }

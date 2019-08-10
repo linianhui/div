@@ -9,18 +9,18 @@ CONSTANT_Long_info {
 */
 
 use crate::class::from_be_bytes_to_i64;
-use crate::class::ConstantKind;
+use crate::class::ConstantTag;
 
 #[derive(Debug)]
 pub struct ConstantLong {
-    pub kind: ConstantKind,
+    pub tag: ConstantTag,
     pub value: i64,
 }
 
 impl ConstantLong {
     pub fn from(bytes: &[u8]) -> ConstantLong {
         ConstantLong {
-            kind: ConstantKind::Long,
+            tag: ConstantTag::Long,
             value: from_be_bytes_to_i64(&bytes[0..8]),
         }
     }

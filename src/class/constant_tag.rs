@@ -2,7 +2,7 @@
 
 #[repr(u8)]
 #[derive(Debug, PartialEq)]
-pub enum ConstantKind {
+pub enum ConstantTag {
     Utf8 = 1,
     Integer = 3,
     Float = 4,
