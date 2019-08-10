@@ -13,14 +13,14 @@ use crate::class::ConstantTag;
 #[derive(Debug)]
 pub struct ConstantFloat {
     pub tag: ConstantTag,
-    pub value: f32,
+    pub bytes: f32,
 }
 
 impl ConstantFloat {
     pub fn from(bytes: &[u8]) -> ConstantFloat {
         ConstantFloat {
             tag: ConstantTag::Float,
-            value: from_be_bytes_to_f32(&bytes[0..4]),
+            bytes: from_be_bytes_to_f32(&bytes[0..4]),
         }
     }
 }
