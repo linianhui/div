@@ -2,6 +2,7 @@ mod class_file_test;
 mod constant_float_test;
 mod constant_integer_test;
 mod constant_kind_test;
+mod constant_long_test;
 
 extern crate div;
 use div::class;
@@ -25,6 +26,13 @@ fn test_from_be_bytes_to_i32() {
     let bytes = [0x12, 0x34, 0x56, 0x78];
     let i32_value = class::from_be_bytes_to_i32(&bytes);
     assert_eq!(0x12_34_56_78, i32_value);
+}
+
+#[test]
+fn test_from_be_bytes_to_i64() {
+    let bytes = [0x12, 0x34, 0x56, 0x78, 0x9A, 0xBC, 0xDE, 0xF0];
+    let i64_value = class::from_be_bytes_to_i64(&bytes);
+    assert_eq!(0x12_34_56_78_9A_BC_DE_F0, i64_value);
 }
 
 #[test]
