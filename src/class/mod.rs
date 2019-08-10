@@ -13,6 +13,7 @@ mod constant_method_ref;
 mod constant_method_type;
 mod constant_module;
 mod constant_name_and_type;
+mod constant_package;
 mod constant_tag;
 mod method_handle_reference_kind;
 pub use class_file::ClassFile;
@@ -30,6 +31,7 @@ pub use constant_method_ref::ConstantMethodRef;
 pub use constant_method_type::ConstantMethodType;
 pub use constant_module::ConstantModule;
 pub use constant_name_and_type::ConstantNameAndType;
+pub use constant_package::ConstantPackage;
 pub use constant_tag::ConstantTag;
 pub use method_handle_reference_kind::MethodHandleReferenceKind;
 
