@@ -17,6 +17,7 @@ mod constant_name_and_type_test;
 mod constant_package_test;
 mod constant_string_test;
 mod constant_tag_test;
+mod field_access_flags_test;
 mod method_handle_reference_kind_test;
 
 extern crate div;
