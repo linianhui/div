@@ -1,3 +1,4 @@
+mod class_access_flags;
 mod class_file;
 mod constant_class;
 mod constant_double;
@@ -17,6 +18,7 @@ mod constant_package;
 mod constant_string;
 mod constant_tag;
 mod method_handle_reference_kind;
+pub use class_access_flags::ClassAccessFlags;
 pub use class_file::ClassFile;
 pub use constant_class::ConstantClass;
 pub use constant_double::ConstantDouble;

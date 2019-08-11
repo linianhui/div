@@ -1,3 +1,4 @@
+mod class_access_flags_test;
 mod class_file_test;
 mod constant_class_test;
 mod constant_double_test;
