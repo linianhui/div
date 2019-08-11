@@ -36,6 +36,7 @@ code: [/src/class](/src/class)
     - [ ] field_info 
 - [ ] methods_count
 - [ ] methods[methods_count]
+    - [x] method_access_flags
     - [ ] method_info 
 - [ ] attributes_count
 - [ ] attributes[attributes_count]
