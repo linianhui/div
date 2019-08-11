@@ -32,6 +32,7 @@ code: [/src/class](/src/class)
 - [ ] interfaces[interfaces_count]
 - [ ] fields_count
 - [ ] fields[fields_count]
+    - [x] field_access_flags
     - [ ] field_info 
 - [ ] methods_count
 - [ ] methods[methods_count]
