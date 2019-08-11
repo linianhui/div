@@ -25,6 +25,7 @@ code: [/src/class](/src/class)
     - [x] CONSTANT_Module_info
     - [x] CONSTANT_Package_info
 - [ ] access_flags
+    - [x] class_access_flags
 - [ ] this_class
 - [ ] super_class
 - [ ] interfaces_count
