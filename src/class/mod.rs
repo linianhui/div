@@ -18,6 +18,7 @@ mod constant_package;
 mod constant_string;
 mod constant_tag;
 mod field_access_flags;
+mod method_access_flags;
 mod method_handle_reference_kind;
 pub use class_access_flags::ClassAccessFlags;
 pub use class_file::ClassFile;
@@ -39,6 +40,7 @@ pub use constant_package::ConstantPackage;
 pub use constant_string::ConstantString;
 pub use constant_tag::ConstantTag;
 pub use field_access_flags::FieldAccessFlags;
+pub use method_access_flags::MethodAccessFlags;
 pub use method_handle_reference_kind::MethodHandleReferenceKind;
 
 pub fn from_be_bytes_to_u16(bytes: &[u8]) -> u16 {
