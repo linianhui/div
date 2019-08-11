@@ -1,6 +1,6 @@
 # ClassFile
 
-https://docs.oracle.com/javase/specs/jvms/se12/html/jvms-4.html
+code: [/src/class](/src/class)
 
 - [x] magic
 - [x] minor_version
@@ -67,3 +67,7 @@ https://docs.oracle.com/javase/specs/jvms/se12/html/jvms-4.html
     - [ ] NestHost_attribute
     - [ ] NestMembers_attribute
 
+
+# Reference
+
+https://docs.oracle.com/javase/specs/jvms/se12/html/jvms-4.html
