@@ -19,7 +19,7 @@ pub struct ConstantInvokeDynamic {
 }
 
 impl ConstantInvokeDynamic {
-    pub fn from(reader: &mut U8Reader) -> ConstantInvokeDynamic {
+    pub fn new(reader: &mut U8Reader) -> ConstantInvokeDynamic {
         ConstantInvokeDynamic {
             tag: ConstantTag::InvokeDynamic,
             bootstrap_method_attr_index: reader.read_u16(),

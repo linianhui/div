@@ -17,7 +17,7 @@ pub struct ConstantPackage {
 }
 
 impl ConstantPackage {
-    pub fn from(reader: &mut U8Reader) -> ConstantPackage {
+    pub fn new(reader: &mut U8Reader) -> ConstantPackage {
         ConstantPackage {
             tag: ConstantTag::Package,
             name_index: reader.read_u16(),

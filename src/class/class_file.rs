@@ -31,8 +31,8 @@ pub struct ClassFile {
 }
 
 impl ClassFile {
-    pub fn from(bytes: &[u8]) -> ClassFile {
-        let mut reader = U8Reader::from(bytes);
+    pub fn new(bytes: &[u8]) -> ClassFile {
+        let mut reader = U8Reader::new(bytes);
         ClassFile {
             magic: reader.read_u32(),
             minor_version: reader.read_u16(),

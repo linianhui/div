@@ -17,7 +17,7 @@ pub struct ConstantMethodType {
 }
 
 impl ConstantMethodType {
-    pub fn from(reader: &mut U8Reader) -> ConstantMethodType {
+    pub fn new(reader: &mut U8Reader) -> ConstantMethodType {
         ConstantMethodType {
             tag: ConstantTag::MethodType,
             descriptor_index: reader.read_u16(),

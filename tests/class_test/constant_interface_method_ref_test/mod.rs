@@ -5,8 +5,8 @@ use div::class::U8Reader;
 
 #[test]
 fn test_constant_interface_method_ref() {
-    let mut u8_reader = U8Reader::from(&[0x00, 0x14, 0x00, 0x15]);
-    let constant_interface_method_ref = ConstantInterfaceMethodRef::from(&mut u8_reader);
+    let mut u8_reader = U8Reader::new(&[0x00, 0x14, 0x00, 0x15]);
+    let constant_interface_method_ref = ConstantInterfaceMethodRef::new(&mut u8_reader);
     assert_eq!(
         ConstantTag::InterfaceMethodRef,
         constant_interface_method_ref.tag

@@ -17,7 +17,7 @@ pub struct ConstantFloat {
 }
 
 impl ConstantFloat {
-    pub fn from(reader: &mut U8Reader) -> ConstantFloat {
+    pub fn new(reader: &mut U8Reader) -> ConstantFloat {
         ConstantFloat {
             tag: ConstantTag::Float,
             bytes: reader.read_f32(),

@@ -19,7 +19,7 @@ pub struct ConstantMethodRef {
 }
 
 impl ConstantMethodRef {
-    pub fn from(reader: &mut U8Reader) -> ConstantMethodRef {
+    pub fn new(reader: &mut U8Reader) -> ConstantMethodRef {
         ConstantMethodRef {
             tag: ConstantTag::MethodRef,
             class_index: reader.read_u16(),

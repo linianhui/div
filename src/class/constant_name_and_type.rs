@@ -19,7 +19,7 @@ pub struct ConstantNameAndType {
 }
 
 impl ConstantNameAndType {
-    pub fn from(reader: &mut U8Reader) -> ConstantNameAndType {
+    pub fn new(reader: &mut U8Reader) -> ConstantNameAndType {
         ConstantNameAndType {
             tag: ConstantTag::NameAndType,
             name_index: reader.read_u16(),

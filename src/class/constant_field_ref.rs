@@ -19,7 +19,7 @@ pub struct ConstantFieldRef {
 }
 
 impl ConstantFieldRef {
-    pub fn from(reader: &mut U8Reader) -> ConstantFieldRef {
+    pub fn new(reader: &mut U8Reader) -> ConstantFieldRef {
         ConstantFieldRef {
             tag: ConstantTag::FieldRef,
             class_index: reader.read_u16(),

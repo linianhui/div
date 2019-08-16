@@ -17,7 +17,7 @@ pub struct ConstantInteger {
 }
 
 impl ConstantInteger {
-    pub fn from(reader: &mut U8Reader) -> ConstantInteger {
+    pub fn new(reader: &mut U8Reader) -> ConstantInteger {
         ConstantInteger {
             tag: ConstantTag::Integer,
             bytes: reader.read_i32(),

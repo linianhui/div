@@ -17,7 +17,7 @@ pub struct ConstantString {
 }
 
 impl ConstantString {
-    pub fn from(reader: &mut U8Reader) -> ConstantString {
+    pub fn new(reader: &mut U8Reader) -> ConstantString {
         ConstantString {
             tag: ConstantTag::String,
             string_index: reader.read_u16(),

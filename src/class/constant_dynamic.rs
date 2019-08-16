@@ -19,7 +19,7 @@ pub struct ConstantDynamic {
 }
 
 impl ConstantDynamic {
-    pub fn from(reader: &mut U8Reader) -> ConstantDynamic {
+    pub fn new(reader: &mut U8Reader) -> ConstantDynamic {
         ConstantDynamic {
             tag: ConstantTag::Dynamic,
             bootstrap_method_attr_index: reader.read_u16(),

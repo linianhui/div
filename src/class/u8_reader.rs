@@ -8,7 +8,7 @@ pub struct U8Reader {
 }
 
 impl U8Reader {
-    pub fn from(bytes: &[u8]) -> U8Reader {
+    pub fn new(bytes: &[u8]) -> U8Reader {
         U8Reader {
             data: Box::from(bytes),
             offset: 0,

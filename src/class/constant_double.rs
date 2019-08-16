@@ -18,7 +18,7 @@ pub struct ConstantDouble {
 }
 
 impl ConstantDouble {
-    pub fn from(reader: &mut U8Reader) -> ConstantDouble {
+    pub fn new(reader: &mut U8Reader) -> ConstantDouble {
         ConstantDouble {
             tag: ConstantTag::Double,
             value: reader.read_f64(),

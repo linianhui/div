@@ -17,7 +17,7 @@ pub struct ConstantClass {
 }
 
 impl ConstantClass {
-    pub fn from(reader: &mut U8Reader) -> ConstantClass {
+    pub fn new(reader: &mut U8Reader) -> ConstantClass {
         ConstantClass {
             tag: ConstantTag::Class,
             name_index: reader.read_u16(),

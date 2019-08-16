@@ -20,7 +20,7 @@ pub struct ConstantMethodHandle {
 }
 
 impl ConstantMethodHandle {
-    pub fn from(reader: &mut U8Reader) -> ConstantMethodHandle {
+    pub fn new(reader: &mut U8Reader) -> ConstantMethodHandle {
         ConstantMethodHandle {
             tag: ConstantTag::MethodHandle,
             reference_kind: reader.read_u8_as_enum(),

@@ -18,7 +18,7 @@ pub struct ConstantLong {
 }
 
 impl ConstantLong {
-    pub fn from(reader: &mut U8Reader) -> ConstantLong {
+    pub fn new(reader: &mut U8Reader) -> ConstantLong {
         ConstantLong {
             tag: ConstantTag::Long,
             value: reader.read_i64(),

@@ -17,7 +17,7 @@ pub struct ConstantModule {
 }
 
 impl ConstantModule {
-    pub fn from(reader: &mut U8Reader) -> ConstantModule {
+    pub fn new(reader: &mut U8Reader) -> ConstantModule {
         ConstantModule {
             tag: ConstantTag::Module,
             name_index: reader.read_u16(),
