@@ -1,6 +1,3 @@
-use crate::class::MethodHandleReferenceKind;
-use std::mem;
-
 #[derive(Debug)]
 pub struct U8Reader {
     pub data: Box<[u8]>,
@@ -31,10 +28,10 @@ impl U8Reader {
         self.read_u64() as i64
     }
 
-    pub fn read_u8_as_enum(&mut self) -> MethodHandleReferenceKind {
+    pub fn read_u8(&mut self) -> u8 {
         let begin = self.offset;
         self.offset += 1;
-        unsafe { mem::transmute::<u8, MethodHandleReferenceKind>(self.data[begin]) }
+        self.data[begin]
     }
 
     pub fn read_u16(&mut self) -> u16 {

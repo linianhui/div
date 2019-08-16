@@ -23,7 +23,7 @@ impl ConstantMethodHandle {
     pub fn new(reader: &mut U8Reader) -> ConstantMethodHandle {
         ConstantMethodHandle {
             tag: ConstantTag::MethodHandle,
-            reference_kind: reader.read_u8_as_enum(),
+            reference_kind: MethodHandleReferenceKind::from(reader.read_u8()),
             reference_index: reader.read_u16(),
         }
     }
