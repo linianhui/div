@@ -65,4 +65,11 @@ impl U8Reader {
             self.data[begin + 7],
         ])
     }
+
+    pub fn read_bytes(&mut self, length: usize) -> &[u8] {
+        let begin = self.offset;
+        let end = begin + length;
+        self.offset = end;
+        &self.data[begin..end]
+    }
 }
