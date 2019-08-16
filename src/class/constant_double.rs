@@ -8,8 +8,8 @@ CONSTANT_Double_info {
 }
 */
 
-use crate::class::from_be_bytes_to_f64;
 use crate::class::ConstantTag;
+use crate::class::U8Reader;
 
 #[derive(Debug)]
 pub struct ConstantDouble {
@@ -18,10 +18,10 @@ pub struct ConstantDouble {
 }
 
 impl ConstantDouble {
-    pub fn from(bytes: &[u8]) -> ConstantDouble {
+    pub fn from(reader: &mut U8Reader) -> ConstantDouble {
         ConstantDouble {
             tag: ConstantTag::Double,
-            value: from_be_bytes_to_f64(&bytes[0..8]),
+            value: reader.read_f64(),
         }
     }
 }

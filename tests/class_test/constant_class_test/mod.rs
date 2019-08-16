@@ -1,10 +1,12 @@
 extern crate div;
 use div::class::ConstantClass;
 use div::class::ConstantTag;
+use div::class::U8Reader;
 
 #[test]
 fn test_constant_class() {
-    let constant_class = ConstantClass::from(&[0x00, 0x15]);
+    let mut u8_reader = U8Reader::from(&[0x00, 0x15]);
+    let constant_class = ConstantClass::from(&mut u8_reader);
     assert_eq!(ConstantTag::Class, constant_class.tag);
     assert_eq!(21, constant_class.name_index);
 }

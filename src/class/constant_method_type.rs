@@ -7,8 +7,8 @@ CONSTANT_MethodType_info {
 }
 */
 
-use crate::class::from_be_bytes_to_u16;
 use crate::class::ConstantTag;
+use crate::class::U8Reader;
 
 #[derive(Debug)]
 pub struct ConstantMethodType {
@@ -17,10 +17,10 @@ pub struct ConstantMethodType {
 }
 
 impl ConstantMethodType {
-    pub fn from(bytes: &[u8]) -> ConstantMethodType {
+    pub fn from(reader: &mut U8Reader) -> ConstantMethodType {
         ConstantMethodType {
             tag: ConstantTag::MethodType,
-            descriptor_index: from_be_bytes_to_u16(&bytes[0..2]),
+            descriptor_index: reader.read_u16(),
         }
     }
 }

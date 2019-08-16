@@ -7,8 +7,8 @@ CONSTANT_Integer_info {
 }
 */
 
-use crate::class::from_be_bytes_to_i32;
 use crate::class::ConstantTag;
+use crate::class::U8Reader;
 
 #[derive(Debug)]
 pub struct ConstantInteger {
@@ -17,10 +17,10 @@ pub struct ConstantInteger {
 }
 
 impl ConstantInteger {
-    pub fn from(bytes: &[u8]) -> ConstantInteger {
+    pub fn from(reader: &mut U8Reader) -> ConstantInteger {
         ConstantInteger {
             tag: ConstantTag::Integer,
-            bytes: from_be_bytes_to_i32(&bytes[0..4]),
+            bytes: reader.read_i32(),
         }
     }
 }

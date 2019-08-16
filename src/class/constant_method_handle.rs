@@ -8,10 +8,9 @@ CONSTANT_MethodHandle_info {
 }
 */
 
-use crate::class::from_be_bytes_to_u16;
 use crate::class::ConstantTag;
 use crate::class::MethodHandleReferenceKind;
-use std::mem;
+use crate::class::U8Reader;
 
 #[derive(Debug)]
 pub struct ConstantMethodHandle {
@@ -21,13 +20,11 @@ pub struct ConstantMethodHandle {
 }
 
 impl ConstantMethodHandle {
-    pub fn from(bytes: &[u8]) -> ConstantMethodHandle {
-        unsafe {
-            ConstantMethodHandle {
-                tag: ConstantTag::MethodHandle,
-                reference_kind: mem::transmute::<u8, MethodHandleReferenceKind>(bytes[0]),
-                reference_index: from_be_bytes_to_u16(&bytes[1..3]),
-            }
+    pub fn from(reader: &mut U8Reader) -> ConstantMethodHandle {
+        ConstantMethodHandle {
+            tag: ConstantTag::MethodHandle,
+            reference_kind: reader.read_u8_as_enum(),
+            reference_index: reader.read_u16(),
         }
     }
 }

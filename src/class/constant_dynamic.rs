@@ -8,8 +8,8 @@ CONSTANT_Dynamic_info {
 }
 */
 
-use crate::class::from_be_bytes_to_u16;
 use crate::class::ConstantTag;
+use crate::class::U8Reader;
 
 #[derive(Debug)]
 pub struct ConstantDynamic {
@@ -19,11 +19,11 @@ pub struct ConstantDynamic {
 }
 
 impl ConstantDynamic {
-    pub fn from(bytes: &[u8]) -> ConstantDynamic {
+    pub fn from(reader: &mut U8Reader) -> ConstantDynamic {
         ConstantDynamic {
             tag: ConstantTag::Dynamic,
-            bootstrap_method_attr_index: from_be_bytes_to_u16(&bytes[0..2]),
-            name_and_type_index: from_be_bytes_to_u16(&bytes[2..4]),
+            bootstrap_method_attr_index: reader.read_u16(),
+            name_and_type_index: reader.read_u16(),
         }
     }
 }

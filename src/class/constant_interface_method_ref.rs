@@ -8,8 +8,8 @@ CONSTANT_InterfaceMethodref_info {
 }
 */
 
-use crate::class::from_be_bytes_to_u16;
 use crate::class::ConstantTag;
+use crate::class::U8Reader;
 
 #[derive(Debug)]
 pub struct ConstantInterfaceMethodRef {
@@ -19,11 +19,11 @@ pub struct ConstantInterfaceMethodRef {
 }
 
 impl ConstantInterfaceMethodRef {
-    pub fn from(bytes: &[u8]) -> ConstantInterfaceMethodRef {
+    pub fn from(reader: &mut U8Reader) -> ConstantInterfaceMethodRef {
         ConstantInterfaceMethodRef {
             tag: ConstantTag::InterfaceMethodRef,
-            class_index: from_be_bytes_to_u16(&bytes[0..2]),
-            name_and_type_index: from_be_bytes_to_u16(&bytes[2..4]),
+            class_index: reader.read_u16(),
+            name_and_type_index: reader.read_u16(),
         }
     }
 }

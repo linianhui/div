@@ -7,8 +7,8 @@ CONSTANT_String_info {
 }
 */
 
-use crate::class::from_be_bytes_to_u16;
 use crate::class::ConstantTag;
+use crate::class::U8Reader;
 
 #[derive(Debug)]
 pub struct ConstantString {
@@ -17,10 +17,10 @@ pub struct ConstantString {
 }
 
 impl ConstantString {
-    pub fn from(bytes: &[u8]) -> ConstantString {
+    pub fn from(reader: &mut U8Reader) -> ConstantString {
         ConstantString {
             tag: ConstantTag::String,
-            string_index: from_be_bytes_to_u16(&bytes[0..2]),
+            string_index: reader.read_u16(),
         }
     }
 }

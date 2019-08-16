@@ -8,8 +8,8 @@ CONSTANT_Long_info {
 }
 */
 
-use crate::class::from_be_bytes_to_i64;
 use crate::class::ConstantTag;
+use crate::class::U8Reader;
 
 #[derive(Debug)]
 pub struct ConstantLong {
@@ -18,10 +18,10 @@ pub struct ConstantLong {
 }
 
 impl ConstantLong {
-    pub fn from(bytes: &[u8]) -> ConstantLong {
+    pub fn from(reader: &mut U8Reader) -> ConstantLong {
         ConstantLong {
             tag: ConstantTag::Long,
-            value: from_be_bytes_to_i64(&bytes[0..8]),
+            value: reader.read_i64(),
         }
     }
 }

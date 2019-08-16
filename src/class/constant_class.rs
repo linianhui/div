@@ -7,8 +7,8 @@ CONSTANT_Class_info {
 }
 */
 
-use crate::class::from_be_bytes_to_u16;
 use crate::class::ConstantTag;
+use crate::class::U8Reader;
 
 #[derive(Debug)]
 pub struct ConstantClass {
@@ -17,10 +17,10 @@ pub struct ConstantClass {
 }
 
 impl ConstantClass {
-    pub fn from(bytes: &[u8]) -> ConstantClass {
+    pub fn from(reader: &mut U8Reader) -> ConstantClass {
         ConstantClass {
             tag: ConstantTag::Class,
-            name_index: from_be_bytes_to_u16(&bytes[0..2]),
+            name_index: reader.read_u16(),
         }
     }
 }

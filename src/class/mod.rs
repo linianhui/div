@@ -20,6 +20,7 @@ mod constant_tag;
 mod field_access_flags;
 mod method_access_flags;
 mod method_handle_reference_kind;
+mod u8_reader;
 pub use class_access_flags::ClassAccessFlags;
 pub use class_file::ClassFile;
 pub use constant_class::ConstantClass;
@@ -42,35 +43,4 @@ pub use constant_tag::ConstantTag;
 pub use field_access_flags::FieldAccessFlags;
 pub use method_access_flags::MethodAccessFlags;
 pub use method_handle_reference_kind::MethodHandleReferenceKind;
-
-pub fn from_be_bytes_to_u16(bytes: &[u8]) -> u16 {
-    u16::from_be_bytes([bytes[0], bytes[1]])
-}
-
-pub fn from_be_bytes_to_u32(bytes: &[u8]) -> u32 {
-    u32::from_be_bytes([bytes[0], bytes[1], bytes[2], bytes[3]])
-}
-
-pub fn from_be_bytes_to_u64(bytes: &[u8]) -> u64 {
-    u64::from_be_bytes([
-        bytes[0], bytes[1], bytes[2], bytes[3], bytes[4], bytes[5], bytes[6], bytes[7],
-    ])
-}
-
-pub fn from_be_bytes_to_i32(bytes: &[u8]) -> i32 {
-    i32::from_be_bytes([bytes[0], bytes[1], bytes[2], bytes[3]])
-}
-
-pub fn from_be_bytes_to_i64(bytes: &[u8]) -> i64 {
-    i64::from_be_bytes([
-        bytes[0], bytes[1], bytes[2], bytes[3], bytes[4], bytes[5], bytes[6], bytes[7],
-    ])
-}
-
-pub fn from_be_bytes_to_f32(bytes: &[u8]) -> f32 {
-    f32::from_bits(from_be_bytes_to_u32(bytes))
-}
-
-pub fn from_be_bytes_to_f64(bytes: &[u8]) -> f64 {
-    f64::from_bits(from_be_bytes_to_u64(bytes))
-}
+pub use u8_reader::U8Reader;

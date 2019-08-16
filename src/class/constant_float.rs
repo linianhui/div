@@ -7,8 +7,8 @@ CONSTANT_Float_info {
 }
 */
 
-use crate::class::from_be_bytes_to_f32;
 use crate::class::ConstantTag;
+use crate::class::U8Reader;
 
 #[derive(Debug)]
 pub struct ConstantFloat {
@@ -17,10 +17,10 @@ pub struct ConstantFloat {
 }
 
 impl ConstantFloat {
-    pub fn from(bytes: &[u8]) -> ConstantFloat {
+    pub fn from(reader: &mut U8Reader) -> ConstantFloat {
         ConstantFloat {
             tag: ConstantTag::Float,
-            bytes: from_be_bytes_to_f32(&bytes[0..4]),
+            bytes: reader.read_f32(),
         }
     }
 }

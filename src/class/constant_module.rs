@@ -7,8 +7,8 @@ CONSTANT_Module_info {
 }
 */
 
-use crate::class::from_be_bytes_to_u16;
 use crate::class::ConstantTag;
+use crate::class::U8Reader;
 
 #[derive(Debug)]
 pub struct ConstantModule {
@@ -17,10 +17,10 @@ pub struct ConstantModule {
 }
 
 impl ConstantModule {
-    pub fn from(bytes: &[u8]) -> ConstantModule {
+    pub fn from(reader: &mut U8Reader) -> ConstantModule {
         ConstantModule {
             tag: ConstantTag::Module,
-            name_index: from_be_bytes_to_u16(&bytes[0..2]),
+            name_index: reader.read_u16(),
         }
     }
 }

@@ -7,8 +7,8 @@ CONSTANT_Package_info {
 }
 */
 
-use crate::class::from_be_bytes_to_u16;
 use crate::class::ConstantTag;
+use crate::class::U8Reader;
 
 #[derive(Debug)]
 pub struct ConstantPackage {
@@ -17,10 +17,10 @@ pub struct ConstantPackage {
 }
 
 impl ConstantPackage {
-    pub fn from(bytes: &[u8]) -> ConstantPackage {
+    pub fn from(reader: &mut U8Reader) -> ConstantPackage {
         ConstantPackage {
             tag: ConstantTag::Package,
-            name_index: from_be_bytes_to_u16(&bytes[0..2]),
+            name_index: reader.read_u16(),
         }
     }
 }

@@ -8,8 +8,8 @@ CONSTANT_NameAndType_info {
 }
 */
 
-use crate::class::from_be_bytes_to_u16;
 use crate::class::ConstantTag;
+use crate::class::U8Reader;
 
 #[derive(Debug)]
 pub struct ConstantNameAndType {
@@ -19,11 +19,11 @@ pub struct ConstantNameAndType {
 }
 
 impl ConstantNameAndType {
-    pub fn from(bytes: &[u8]) -> ConstantNameAndType {
+    pub fn from(reader: &mut U8Reader) -> ConstantNameAndType {
         ConstantNameAndType {
             tag: ConstantTag::NameAndType,
-            name_index: from_be_bytes_to_u16(&bytes[0..2]),
-            descriptor_index: from_be_bytes_to_u16(&bytes[2..4]),
+            name_index: reader.read_u16(),
+            descriptor_index: reader.read_u16(),
         }
     }
 }
