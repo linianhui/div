@@ -33,11 +33,15 @@ pub struct ClassFile {
 impl ClassFile {
     pub fn new(bytes: &[u8]) -> ClassFile {
         let mut reader = U8Reader::new(bytes);
+        let magic = reader.read_u32();
+        let minor_version = reader.read_u16();
+        let major_version = reader.read_u16();
+        let constant_pool_count = reader.read_u16();
         ClassFile {
-            magic: reader.read_u32(),
-            minor_version: reader.read_u16(),
-            major_version: reader.read_u16(),
-            constant_pool_count: reader.read_u16(),
+            magic,
+            minor_version,
+            major_version,
+            constant_pool_count,
         }
     }
 }
