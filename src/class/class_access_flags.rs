@@ -1,5 +1,7 @@
 // https://docs.oracle.com/javase/specs/jvms/se12/html/jvms-4.html#jvms-4.1-200-E.1
 
+use std::mem::transmute;
+
 #[repr(u16)]
 #[derive(Debug, PartialEq)]
 pub enum ClassAccessFlags {
@@ -12,4 +14,10 @@ pub enum ClassAccessFlags {
     Annotation = 0x_20_00,
     Enum = 0x_40_00,
     Module = 0x_80_00,
+}
+
+impl From<u16> for ClassAccessFlags {
+    fn from(value: u16) -> ClassAccessFlags {
+        unsafe { transmute::<u16, ClassAccessFlags>(value) }
+    }
 }

@@ -1,5 +1,7 @@
 // https://docs.oracle.com/javase/specs/jvms/se12/html/jvms-4.html#jvms-4.6-200-A.1
 
+use std::mem::transmute;
+
 #[repr(u16)]
 #[derive(Debug, PartialEq)]
 pub enum MethodAccessFlags {
@@ -15,4 +17,10 @@ pub enum MethodAccessFlags {
     Abstract = 0x_04_00,
     Strict = 0x_08_00,
     Synthetic = 0x_10_00,
+}
+
+impl From<u16> for MethodAccessFlags {
+    fn from(value: u16) -> MethodAccessFlags {
+        unsafe { transmute::<u16, MethodAccessFlags>(value) }
+    }
 }

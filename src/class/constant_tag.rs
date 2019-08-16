@@ -1,5 +1,7 @@
 // https://docs.oracle.com/javase/specs/jvms/se12/html/jvms-4.html#jvms-4.4-210
 
+use std::mem::transmute;
+
 #[repr(u8)]
 #[derive(Debug, PartialEq)]
 pub enum ConstantTag {
@@ -20,4 +22,10 @@ pub enum ConstantTag {
     InvokeDynamic = 18,
     Module = 19,
     Package = 20,
+}
+
+impl From<u8> for ConstantTag {
+    fn from(value: u8) -> ConstantTag {
+        unsafe { transmute::<u8, ConstantTag>(value) }
+    }
 }
