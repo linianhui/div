@@ -1,5 +1,6 @@
 mod class_access_flags;
 mod class_file;
+mod constant;
 mod constant_class;
 mod constant_double;
 mod constant_dynamic;
@@ -24,6 +25,7 @@ mod method_handle_reference_kind;
 mod u8_reader;
 pub use class_access_flags::ClassAccessFlags;
 pub use class_file::ClassFile;
+pub use constant::Constant;
 pub use constant_class::ConstantClass;
 pub use constant_double::ConstantDouble;
 pub use constant_dynamic::ConstantDynamic;
