@@ -67,4 +67,21 @@ impl Constant {
             ConstantTag::Package => Constant::Package(ConstantPackage::new(reader)),
         }
     }
+
+    pub fn vec(constant_pool_count: usize, reader: &mut U8Reader) -> Vec<Constant> {
+        let mut pool: Vec<Constant> = Vec::with_capacity(constant_pool_count);
+        unsafe {
+            pool.set_len(constant_pool_count);
+        }
+        let mut i = 1usize;
+        while i < constant_pool_count {
+            let constant_tag = ConstantTag::from(reader.read_u8());
+            pool[i] = Constant::new(constant_tag, reader);
+            if ConstantTag::Long == constant_tag || ConstantTag::Double == constant_tag {
+                i = i + 1;
+            }
+            i = i + 1;
+        }
+        return pool;
+    }
 }

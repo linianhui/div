@@ -20,6 +20,7 @@ ClassFile {
 }
 */
 
+use crate::class::Constant;
 use crate::class::U8Reader;
 
 #[derive(Debug)]
@@ -28,6 +29,7 @@ pub struct ClassFile {
     pub minor_version: u16,
     pub major_version: u16,
     pub constant_pool_count: u16,
+    pub constant_pool: Vec<Constant>,
 }
 
 impl ClassFile {
@@ -37,11 +39,14 @@ impl ClassFile {
         let minor_version = reader.read_u16();
         let major_version = reader.read_u16();
         let constant_pool_count = reader.read_u16();
+        let constant_pool = Constant::vec(constant_pool_count as usize, &mut reader);
+
         ClassFile {
             magic,
             minor_version,
             major_version,
             constant_pool_count,
+            constant_pool,
         }
     }
 }

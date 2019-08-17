@@ -8,6 +8,7 @@ fn test_class_file() {
     assert_eq!(0x00_00, class_file.minor_version);
     assert_eq!(0x00_34, class_file.major_version);
     assert_eq!(29, class_file.constant_pool_count);
+    assert_eq!(29, class_file.constant_pool.len());
 }
 
 #[test]
