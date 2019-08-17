@@ -8,6 +8,7 @@ fn test_read_f32() {
     let f32_value = reader.read_f32();
 
     assert_eq!(3.1415_9265_f32, f32_value);
+    assert_eq!(4, reader.offset);
 }
 
 #[test]
@@ -17,6 +18,7 @@ fn test_read_f64() {
     let f64_value = reader.read_f64();
 
     assert_eq!(3.1415_9265_3579_3978_f64, f64_value);
+    assert_eq!(8, reader.offset);
 }
 
 #[test]
@@ -26,6 +28,7 @@ fn test_read_i32() {
     let i32_value = reader.read_i32();
 
     assert_eq!(0x12_34_56_78, i32_value);
+    assert_eq!(4, reader.offset);
 }
 
 #[test]
@@ -35,6 +38,7 @@ fn test_read_i64() {
     let i64_value = reader.read_i64();
 
     assert_eq!(0x12_34_56_78_9A_BC_DE_F0, i64_value);
+    assert_eq!(8, reader.offset);
 }
 
 #[test]
@@ -46,6 +50,7 @@ fn test_read_u16() {
 
     assert_eq!(0xCA_FE, u16_value_1);
     assert_eq!(0xBA_BE, u16_value_2);
+    assert_eq!(4, reader.offset);
 }
 
 #[test]
@@ -57,6 +62,7 @@ fn test_read_u32() {
 
     assert_eq!(0xCA_FE_BA_BE, u32_value);
     assert_eq!(0x12_34, u16_value);
+    assert_eq!(6, reader.offset);
 }
 
 #[test]
@@ -66,6 +72,7 @@ fn test_read_u64() {
     let u64_value = reader.read_u64();
 
     assert_eq!(0x12_34_56_78_9A_BC_DE_F0, u64_value);
+    assert_eq!(8, reader.offset);
 }
 
 #[test]
@@ -77,4 +84,5 @@ fn test_read_bytes() {
 
     let bytes_2 = reader.read_bytes(3);
     assert_eq!(&[0x56, 0x78, 0x9A], bytes_2);
+    assert_eq!(5, reader.offset);
 }

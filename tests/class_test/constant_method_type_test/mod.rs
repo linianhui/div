@@ -9,4 +9,5 @@ fn test_constant_method_type() {
     let constant_method_type = ConstantMethodType::new(&mut u8_reader);
     assert_eq!(ConstantTag::MethodType, constant_method_type.tag);
     assert_eq!(21, constant_method_type.descriptor_index);
+    assert_eq!(2, u8_reader.offset);
 }

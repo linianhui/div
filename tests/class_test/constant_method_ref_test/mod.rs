@@ -10,4 +10,5 @@ fn test_constant_method_ref() {
     assert_eq!(ConstantTag::MethodRef, constant_method_ref.tag);
     assert_eq!(18, constant_method_ref.class_index);
     assert_eq!(19, constant_method_ref.name_and_type_index);
+    assert_eq!(4, u8_reader.offset);
 }

@@ -9,4 +9,5 @@ fn test_constant_module() {
     let constant_module = ConstantModule::new(&mut u8_reader);
     assert_eq!(ConstantTag::Module, constant_module.tag);
     assert_eq!(21, constant_module.name_index);
+    assert_eq!(2, u8_reader.offset);
 }

@@ -10,4 +10,5 @@ fn test_constant_dynamic() {
     assert_eq!(ConstantTag::Dynamic, constant_dynamic.tag);
     assert_eq!(18, constant_dynamic.bootstrap_method_attr_index);
     assert_eq!(19, constant_dynamic.name_and_type_index);
+    assert_eq!(4, u8_reader.offset);
 }

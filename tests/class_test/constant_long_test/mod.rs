@@ -9,4 +9,5 @@ fn test_constant_long() {
     let constant_long = ConstantLong::new(&mut u8_reader);
     assert_eq!(ConstantTag::Long, constant_long.tag);
     assert_eq!(0x12_34_56_78_9A_BC_DE_F0, constant_long.value);
+    assert_eq!(8, u8_reader.offset);
 }

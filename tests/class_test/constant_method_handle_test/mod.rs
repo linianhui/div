@@ -14,4 +14,5 @@ fn test_constant_method_handle() {
         constant_method_handle.reference_kind
     );
     assert_eq!(19, constant_method_handle.reference_index);
+    assert_eq!(3, u8_reader.offset);
 }
