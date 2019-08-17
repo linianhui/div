@@ -35,6 +35,12 @@ fn test_class_file_constant_pool_count() {
     assert_eq!(29, class_file.constant_pool_count);
 }
 
+#[test]
+fn test_class_file_constant_pool() {
+    let class_file = read_class_file();
+    assert_eq!(29, class_file.constant_pool.len());
+}
+
 fn read_class_file() -> ClassFile {
     ClassFile::new(include_bytes!("test.class"))
 }
