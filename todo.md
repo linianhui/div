@@ -6,7 +6,7 @@ code: [/src/class](/src/class)
 - [x] minor_version
 - [x] major_version
 - [x] constant_pool_count
-- [ ] constant_pool[constant_pool_count-1]
+- [x] constant_pool[constant_pool_count-1]
     - [ ] CONSTANT_Utf8_info
     - [x] CONSTANT_Integer_info
     - [x] CONSTANT_Float_info
