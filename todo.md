@@ -28,7 +28,7 @@ code: [/src/class](/src/class)
     - [x] class_access_flags
 - [x] this_class
 - [x] super_class
-- [ ] interfaces_count
+- [x] interfaces_count
 - [ ] interfaces[interfaces_count]
 - [ ] fields_count
 - [ ] fields[fields_count]

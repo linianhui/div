@@ -35,6 +35,7 @@ pub struct ClassFile {
     pub access_flags: HashSet<ClassAccessFlags>,
     pub this_class: u16,
     pub super_class: u16,
+    pub interfaces_count: u16,
 }
 
 impl ClassFile {
@@ -48,6 +49,7 @@ impl ClassFile {
         let access_flags = ClassAccessFlags::flags(reader.read_u16());
         let this_class = reader.read_u16();
         let super_class = reader.read_u16();
+        let interfaces_count = reader.read_u16();
 
         ClassFile {
             magic,
@@ -58,6 +60,7 @@ impl ClassFile {
             access_flags,
             this_class,
             super_class,
+            interfaces_count,
         }
     }
 }

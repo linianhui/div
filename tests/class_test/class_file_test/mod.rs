@@ -14,6 +14,7 @@ fn test_class_file() {
     assert!(class_file.access_flags.contains(&ClassAccessFlags::Super));
     assert_eq!(5, class_file.this_class);
     assert_eq!(6, class_file.super_class);
+    assert_eq!(0, class_file.interfaces_count);
 }
 
 #[test]
@@ -64,6 +65,12 @@ fn test_class_file_this_class() {
 fn test_class_file_super_class() {
     let class_file = read_class_file();
     assert_eq!(6, class_file.super_class);
+}
+
+#[test]
+fn test_class_file_interfaces_count() {
+    let class_file = read_class_file();
+    assert_eq!(0, class_file.interfaces_count);
 }
 
 fn read_class_file() -> ClassFile {
