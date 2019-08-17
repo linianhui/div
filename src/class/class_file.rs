@@ -33,6 +33,7 @@ pub struct ClassFile {
     pub constant_pool_count: u16,
     pub constant_pool: Vec<Constant>,
     pub access_flags: HashSet<ClassAccessFlags>,
+    pub this_class: u16,
 }
 
 impl ClassFile {
@@ -44,6 +45,7 @@ impl ClassFile {
         let constant_pool_count = reader.read_u16();
         let constant_pool = Constant::vec(constant_pool_count as usize, &mut reader);
         let access_flags = ClassAccessFlags::flags(reader.read_u16());
+        let this_class = reader.read_u16();
 
         ClassFile {
             magic,
@@ -52,6 +54,7 @@ impl ClassFile {
             constant_pool_count,
             constant_pool,
             access_flags,
+            this_class,
         }
     }
 }

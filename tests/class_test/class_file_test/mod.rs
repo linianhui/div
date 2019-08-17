@@ -12,6 +12,7 @@ fn test_class_file() {
     assert_eq!(2, class_file.access_flags.len());
     assert!(class_file.access_flags.contains(&ClassAccessFlags::Public));
     assert!(class_file.access_flags.contains(&ClassAccessFlags::Super));
+    assert_eq!(5, class_file.this_class);
 }
 
 #[test]
@@ -50,6 +51,12 @@ fn test_class_file_access_flags() {
     assert_eq!(2, class_file.access_flags.len());
     assert!(class_file.access_flags.contains(&ClassAccessFlags::Public));
     assert!(class_file.access_flags.contains(&ClassAccessFlags::Super));
+}
+
+#[test]
+fn test_class_file_this_class() {
+    let class_file = read_class_file();
+    assert_eq!(5, class_file.this_class);
 }
 
 fn read_class_file() -> ClassFile {
