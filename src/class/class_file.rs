@@ -20,8 +20,10 @@ ClassFile {
 }
 */
 
+use crate::class::ClassAccessFlags;
 use crate::class::Constant;
 use crate::class::U8Reader;
+use std::collections::HashSet;
 
 #[derive(Debug)]
 pub struct ClassFile {
@@ -30,6 +32,7 @@ pub struct ClassFile {
     pub major_version: u16,
     pub constant_pool_count: u16,
     pub constant_pool: Vec<Constant>,
+    pub access_flags: HashSet<ClassAccessFlags>,
 }
 
 impl ClassFile {
@@ -40,6 +43,7 @@ impl ClassFile {
         let major_version = reader.read_u16();
         let constant_pool_count = reader.read_u16();
         let constant_pool = Constant::vec(constant_pool_count as usize, &mut reader);
+        let access_flags = ClassAccessFlags::flags(reader.read_u16());
 
         ClassFile {
             magic,
@@ -47,6 +51,7 @@ impl ClassFile {
             major_version,
             constant_pool_count,
             constant_pool,
+            access_flags,
         }
     }
 }

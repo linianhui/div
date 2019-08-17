@@ -1,5 +1,5 @@
 extern crate div;
-use div::class::ClassFile;
+use div::class::*;
 
 #[test]
 fn test_class_file() {
@@ -9,6 +9,9 @@ fn test_class_file() {
     assert_eq!(0x00_34, class_file.major_version);
     assert_eq!(29, class_file.constant_pool_count);
     assert_eq!(29, class_file.constant_pool.len());
+    assert_eq!(2, class_file.access_flags.len());
+    assert!(class_file.access_flags.contains(&ClassAccessFlags::Public));
+    assert!(class_file.access_flags.contains(&ClassAccessFlags::Super));
 }
 
 #[test]
@@ -39,6 +42,14 @@ fn test_class_file_constant_pool_count() {
 fn test_class_file_constant_pool() {
     let class_file = read_class_file();
     assert_eq!(29, class_file.constant_pool.len());
+}
+
+#[test]
+fn test_class_file_access_flags() {
+    let class_file = read_class_file();
+    assert_eq!(2, class_file.access_flags.len());
+    assert!(class_file.access_flags.contains(&ClassAccessFlags::Public));
+    assert!(class_file.access_flags.contains(&ClassAccessFlags::Super));
 }
 
 fn read_class_file() -> ClassFile {
