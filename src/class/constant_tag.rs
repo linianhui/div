@@ -3,7 +3,7 @@
 use std::mem::transmute;
 
 #[repr(u8)]
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq, Clone, Copy)]
 pub enum ConstantTag {
     Utf8 = 1,
     Integer = 3,
