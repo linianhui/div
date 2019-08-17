@@ -24,10 +24,10 @@ code: [/src/class](/src/class)
     - [x] CONSTANT_InvokeDynamic_info
     - [x] CONSTANT_Module_info
     - [x] CONSTANT_Package_info
-- [ ] access_flags
+- [x] access_flags
     - [x] class_access_flags
-- [ ] this_class
-- [ ] super_class
+- [x] this_class
+- [x] super_class
 - [ ] interfaces_count
 - [ ] interfaces[interfaces_count]
 - [ ] fields_count
