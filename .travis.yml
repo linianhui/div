@@ -14,6 +14,3 @@ before_script:
 script:
 - cargo fmt --all -- --check
 - cargo test --verbose
-
-cache:
-  cargo: true
