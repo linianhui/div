@@ -1,24 +1,6 @@
 // https://docs.oracle.com/javase/specs/jvms/se12/html/jvms-4.html#jvms-4.4
 
-use crate::class::ConstantClass;
-use crate::class::ConstantDouble;
-use crate::class::ConstantDynamic;
-use crate::class::ConstantFieldRef;
-use crate::class::ConstantFloat;
-use crate::class::ConstantInteger;
-use crate::class::ConstantInterfaceMethodRef;
-use crate::class::ConstantInvokeDynamic;
-use crate::class::ConstantLong;
-use crate::class::ConstantMethodHandle;
-use crate::class::ConstantMethodRef;
-use crate::class::ConstantMethodType;
-use crate::class::ConstantModule;
-use crate::class::ConstantNameAndType;
-use crate::class::ConstantPackage;
-use crate::class::ConstantString;
-use crate::class::ConstantTag;
-use crate::class::ConstantUtf8;
-use crate::class::U8Reader;
+use crate::class::*;
 
 #[derive(Debug)]
 pub enum Constant {
