@@ -46,7 +46,8 @@ impl ClassFile {
         let major_version = reader.read_u16();
         let constant_pool_count = reader.read_u16();
         let constant_pool = Constant::vec(constant_pool_count as usize, &mut reader);
-        let access_flags = ClassAccessFlags::flags(reader.read_u16());
+        let access_flags_raw = reader.read_u16();
+        let access_flags = ClassAccessFlags::flags(access_flags_raw);
         let this_class = reader.read_u16();
         let super_class = reader.read_u16();
         let interfaces_count = reader.read_u16();
