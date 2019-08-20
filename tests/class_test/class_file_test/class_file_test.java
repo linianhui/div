@@ -1,6 +1,6 @@
 import java.lang.RuntimeException;
 
-public class class_file_test {
+public class class_file_test implements Comparable<class_file_test> {
     public static final boolean BOOLEAN_VALUE = true;
     public static final byte BYTE_VALUE = 32;
     public static final char CHAR_VALUE = 'L';
@@ -22,5 +22,10 @@ public class class_file_test {
         System.out.println(LONG_VALUE);
         System.out.println(FLOAT_VALUE);
         System.out.println(DOUBLE_VALUE);
+    }
+
+    @Override
+    public int compareTo(class_file_test o) {
+      return 0;
     }
 }

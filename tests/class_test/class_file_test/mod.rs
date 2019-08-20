@@ -11,9 +11,9 @@ fn test_class_file() {
 
     assert_eq!(0x00_34, class_file.major_version);
 
-    assert_eq!(81, class_file.constant_pool_count);
+    assert_eq!(90, class_file.constant_pool_count);
 
-    assert_eq!(81, class_file.constant_pool.len());
+    assert_eq!(90, class_file.constant_pool.len());
 
     assert_eq!(2, class_file.access_flags.len());
     assert!(class_file.access_flags.contains(&ClassAccessFlags::Public));
@@ -21,7 +21,7 @@ fn test_class_file() {
 
     assert_eq!(5, class_file.this_class);
 
-    assert_eq!(19, class_file.super_class);
+    assert_eq!(20, class_file.super_class);
 
-    assert_eq!(0, class_file.interfaces_count);
+    assert_eq!(1, class_file.interfaces_count);
 }
