@@ -26,4 +26,6 @@ fn test_class_file() {
     assert_eq!(1, class_file.interfaces_count);
 
     assert_eq!(vec![21], class_file.interfaces);
+
+    assert_eq!(9, class_file.fields_count);
 }

@@ -30,7 +30,7 @@ code: [/src/class](/src/class)
 - [x] super_class
 - [x] interfaces_count
 - [x] interfaces[interfaces_count]
-- [ ] fields_count
+- [x] fields_count
 - [ ] fields[fields_count]
     - [x] field_access_flags
     - [ ] field_info 
