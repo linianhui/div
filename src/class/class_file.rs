@@ -36,6 +36,7 @@ pub struct ClassFile {
     pub this_class: u16,
     pub super_class: u16,
     pub interfaces_count: u16,
+    pub interfaces: Vec<u16>,
 }
 
 impl ClassFile {
@@ -51,6 +52,7 @@ impl ClassFile {
         let this_class = reader.read_u16();
         let super_class = reader.read_u16();
         let interfaces_count = reader.read_u16();
+        let interfaces = reader.read_u16_vec(interfaces_count as usize);
 
         ClassFile {
             magic,
@@ -62,6 +64,7 @@ impl ClassFile {
             this_class,
             super_class,
             interfaces_count,
+            interfaces,
         }
     }
 }

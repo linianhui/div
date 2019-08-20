@@ -40,6 +40,16 @@ impl U8Reader {
         u16::from_be_bytes([self.data[begin], self.data[begin + 1]])
     }
 
+    pub fn read_u16_vec(&mut self, count: usize) -> Vec<u16> {
+        let mut u16_vec: Vec<u16> = Vec::with_capacity(count);
+        for _i in 0..count {
+            let u16_value = self.read_u16();
+            u16_vec.push(u16_value);
+        }
+
+        return u16_vec;
+    }
+
     pub fn read_u32(&mut self) -> u32 {
         let begin = self.offset;
         self.offset += 4;

@@ -54,6 +54,16 @@ fn test_read_u16() {
 }
 
 #[test]
+fn test_read_u16_vec() {
+    let mut reader = U8Reader::new(&[0xCA, 0xFE, 0xBA, 0xBE]);
+
+    let u16_vec = reader.read_u16_vec(2usize);
+
+    assert_eq!(vec![0xCA_FEu16, 0xBA_BEu16], u16_vec);
+    assert_eq!(4, reader.offset);
+}
+
+#[test]
 fn test_read_u32() {
     let mut reader = U8Reader::new(&[0xCA, 0xFE, 0xBA, 0xBE, 0x12, 0x34]);
 
