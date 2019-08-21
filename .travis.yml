@@ -1,7 +1,7 @@
 sudo: false
 language: rust
 rust:
-- 1.36.0
+- 1.37.0
 
 os:
 - linux
