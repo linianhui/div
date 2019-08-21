@@ -23,6 +23,7 @@ ClassFile {
 use crate::class::ClassAccessFlags;
 use crate::class::Constant;
 use crate::class::Field;
+use crate::class::Method;
 use crate::class::U8Reader;
 use std::collections::HashSet;
 
@@ -41,6 +42,7 @@ pub struct ClassFile {
     pub fields_count: u16,
     pub fields: Vec<Field>,
     pub methods_count: u16,
+    pub methods: Vec<Method>,
 }
 
 impl ClassFile {
@@ -60,6 +62,7 @@ impl ClassFile {
         let fields_count = reader.read_u16();
         let fields = Field::vec(fields_count as usize, &mut reader);
         let methods_count = reader.read_u16();
+        let methods = Method::vec(methods_count as usize, &mut reader);
 
         ClassFile {
             magic,
@@ -75,6 +78,7 @@ impl ClassFile {
             fields_count,
             fields,
             methods_count,
+            methods,
         }
     }
 }

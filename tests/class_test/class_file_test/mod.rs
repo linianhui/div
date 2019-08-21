@@ -53,4 +53,24 @@ fn test_class_file() {
     assert_eq!(2, fields[1].attributes[0].attribute_length);
 
     assert_eq!(4, class_file.methods_count);
+
+    let methods = class_file.methods;
+    assert_eq!(4, methods.len());
+    assert_eq!(1, methods[0].access_flags.len());
+    assert!(methods[0].access_flags.contains(&MethodAccessFlags::Public));
+    assert_eq!(45, methods[0].name_index);
+    assert_eq!(46, methods[0].descriptor_index);
+    assert_eq!(1, methods[0].attributes_count);
+    assert_eq!(1, methods[0].attributes.len());
+    assert_eq!(47, methods[0].attributes[0].attribute_name_index);
+    assert_eq!(29, methods[0].attributes[0].attribute_length);
+    assert_eq!(2, methods[1].access_flags.len());
+    assert!(methods[1].access_flags.contains(&MethodAccessFlags::Public));
+    assert!(methods[1].access_flags.contains(&MethodAccessFlags::Static));
+    assert_eq!(49, methods[1].name_index);
+    assert_eq!(50, methods[1].descriptor_index);
+    assert_eq!(2, methods[1].attributes_count);
+    assert_eq!(2, methods[1].attributes.len());
+    assert_eq!(47, methods[1].attributes[0].attribute_name_index);
+    assert_eq!(147, methods[1].attributes[0].attribute_length);
 }
