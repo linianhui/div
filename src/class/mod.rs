@@ -1,3 +1,4 @@
+mod attribute;
 mod class_access_flags;
 mod class_file;
 mod constant;
@@ -23,6 +24,8 @@ mod field_access_flags;
 mod method_access_flags;
 mod method_handle_reference_kind;
 mod u8_reader;
+
+pub use attribute::Attribute;
 pub use class_access_flags::ClassAccessFlags;
 pub use class_file::ClassFile;
 pub use constant::Constant;
