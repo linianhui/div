@@ -38,7 +38,7 @@ code: [/src/class](/src/class)
 - [x] methods[methods_count]
     - [x] method_access_flags
     - [x] method_info 
-- [ ] attributes_count
+- [x] attributes_count
 - [ ] attributes[attributes_count]
     - [x] attribute_info
     - [ ] ConstantValue_attribute

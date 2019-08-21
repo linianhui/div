@@ -73,4 +73,6 @@ fn test_class_file() {
     assert_eq!(2, methods[1].attributes.len());
     assert_eq!(47, methods[1].attributes[0].attribute_name_index);
     assert_eq!(147, methods[1].attributes[0].attribute_length);
+
+    assert_eq!(2, class_file.attributes_count);
 }

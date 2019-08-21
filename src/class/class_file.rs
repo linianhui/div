@@ -43,6 +43,7 @@ pub struct ClassFile {
     pub fields: Vec<Field>,
     pub methods_count: u16,
     pub methods: Vec<Method>,
+    pub attributes_count: u16,
 }
 
 impl ClassFile {
@@ -63,6 +64,7 @@ impl ClassFile {
         let fields = Field::vec(fields_count as usize, &mut reader);
         let methods_count = reader.read_u16();
         let methods = Method::vec(methods_count as usize, &mut reader);
+        let attributes_count = reader.read_u16();
 
         ClassFile {
             magic,
@@ -79,6 +81,7 @@ impl ClassFile {
             fields,
             methods_count,
             methods,
+            attributes_count,
         }
     }
 }
