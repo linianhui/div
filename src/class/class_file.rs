@@ -22,6 +22,7 @@ ClassFile {
 
 use crate::class::ClassAccessFlags;
 use crate::class::Constant;
+use crate::class::Field;
 use crate::class::U8Reader;
 use std::collections::HashSet;
 
@@ -38,6 +39,7 @@ pub struct ClassFile {
     pub interfaces_count: u16,
     pub interfaces: Vec<u16>,
     pub fields_count: u16,
+    pub fields: Vec<Field>,
 }
 
 impl ClassFile {
@@ -55,6 +57,7 @@ impl ClassFile {
         let interfaces_count = reader.read_u16();
         let interfaces = reader.read_u16_vec(interfaces_count as usize);
         let fields_count = reader.read_u16();
+        let fields = Field::vec(fields_count as usize, &mut reader);
 
         ClassFile {
             magic,
@@ -68,6 +71,7 @@ impl ClassFile {
             interfaces_count,
             interfaces,
             fields_count,
+            fields,
         }
     }
 }

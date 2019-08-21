@@ -31,16 +31,16 @@ code: [/src/class](/src/class)
 - [x] interfaces_count
 - [x] interfaces[interfaces_count]
 - [x] fields_count
-- [ ] fields[fields_count]
+- [x] fields[fields_count]
     - [x] field_access_flags
-    - [ ] field_info 
+    - [x] field_info 
 - [ ] methods_count
 - [ ] methods[methods_count]
     - [x] method_access_flags
     - [ ] method_info 
 - [ ] attributes_count
 - [ ] attributes[attributes_count]
-    - [ ] attribute_info
+    - [x] attribute_info
     - [ ] ConstantValue_attribute
     - [ ] Code_attribute
     - [ ] Exceptions_attribute

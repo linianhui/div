@@ -20,6 +20,7 @@ mod constant_string_test;
 mod constant_tag_test;
 mod constant_utf8_test;
 mod field_access_flags_test;
+mod field_test;
 mod method_access_flags_test;
 mod method_handle_reference_kind_test;
 mod u8_reader_test;
