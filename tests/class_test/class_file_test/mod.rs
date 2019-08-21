@@ -75,4 +75,12 @@ fn test_class_file() {
     assert_eq!(147, methods[1].attributes[0].attribute_length);
 
     assert_eq!(2, class_file.attributes_count);
+
+    let attributes = class_file.attributes;
+
+    assert_eq!(2, attributes.len());
+    assert_eq!(56, attributes[0].attribute_name_index);
+    assert_eq!(2, attributes[0].attribute_length);
+    assert_eq!(58, attributes[1].attribute_name_index);
+    assert_eq!(2, attributes[1].attribute_length);
 }

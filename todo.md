@@ -39,7 +39,7 @@ code: [/src/class](/src/class)
     - [x] method_access_flags
     - [x] method_info 
 - [x] attributes_count
-- [ ] attributes[attributes_count]
+- [x] attributes[attributes_count]
     - [x] attribute_info
     - [ ] ConstantValue_attribute
     - [ ] Code_attribute

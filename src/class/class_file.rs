@@ -20,6 +20,7 @@ ClassFile {
 }
 */
 
+use crate::class::Attribute;
 use crate::class::ClassAccessFlags;
 use crate::class::Constant;
 use crate::class::Field;
@@ -44,6 +45,7 @@ pub struct ClassFile {
     pub methods_count: u16,
     pub methods: Vec<Method>,
     pub attributes_count: u16,
+    pub attributes: Vec<Attribute>,
 }
 
 impl ClassFile {
@@ -65,6 +67,7 @@ impl ClassFile {
         let methods_count = reader.read_u16();
         let methods = Method::vec(methods_count as usize, &mut reader);
         let attributes_count = reader.read_u16();
+        let attributes = Attribute::vec(attributes_count as usize, &mut reader);
 
         ClassFile {
             magic,
@@ -82,6 +85,7 @@ impl ClassFile {
             methods_count,
             methods,
             attributes_count,
+            attributes,
         }
     }
 }
