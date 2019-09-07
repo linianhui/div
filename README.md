@@ -1,8 +1,8 @@
 # CI
 
-| CI Service     | Build Platform      | Stauts                                      |
-| -------------- | ------------------- | ------------------------------------------- |
-| Github Actions | linux, osx, windows | [![Github-Actions-Img]][Github-Actions-Url] |
+| CI             | Platform       | Stauts                                      |
+| -------------- | -------------- | ------------------------------------------- |
+| Github Actions | linux, windows | [![Github-Actions-Img]][Github-Actions-Url] |
 
 
 # todo
