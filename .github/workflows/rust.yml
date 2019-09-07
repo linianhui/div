@@ -3,15 +3,19 @@ name: test
 on: [push]
 
 jobs:
-  build:
+  test:
 
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+        rust: [1.37.0]
 
     steps:
     - uses: actions/checkout@v1
-    - name: version
+    - name: show rust version
       run: rustc --version
-    - name: fmt
+    - name: rust check format
       run: cargo fmt --all -- --check
-    - name: test
+    - name: rust test
       run: cargo test --verbose
