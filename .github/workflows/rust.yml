@@ -12,6 +12,8 @@ jobs:
     - name: checkout
       uses: actions/checkout@v1
     - name: format
-      run: cargo fmt --all -- --check
+      run: | 
+        rustup component add rustfmt
+        cargo fmt --all -- --check
     - name: test
       run: cargo test --verbose
