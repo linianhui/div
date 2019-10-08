@@ -5,15 +5,17 @@ on: [push]
 jobs:
   test:
     runs-on: ubuntu-latest
+
     container:
       # https://hub.docker.com/_/rust
-      image: rust:1.38-alpine 
+      image: rust:1.38-alpine
+
     steps:
-    - name: checkout
-      uses: actions/checkout@v1
-    - name: format
-      run: | 
-        rustup component add rustfmt
-        cargo fmt --all -- --check
-    - name: test
-      run: cargo test --verbose
+      - name: git checkout
+        uses: actions/checkout@v1
+      - name: rust format
+        run: |
+          rustup component add rustfmt
+          cargo fmt --all -- --check
+      - name: rust test
+        run: cargo test --verbose
