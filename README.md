@@ -2,12 +2,12 @@
 
 | CI             | Platform | Stauts                                      |
 | -------------- | -------- | ------------------------------------------- |
-| Github Actions | docker   | [![Github-Actions-Img]][Github-Actions-Url] |
+| GitHub Actions | docker   | [![GitHub-Actions-Img]][GitHub-Actions-Url] |
 
 
 # todo
 [todo](/todo.md)
 
 
-[Github-Actions-Img]:https://github.com/linianhui/div/workflows/test/badge.svg
-[Github-Actions-Url]:https://github.com/linianhui/div/actions
+[GitHub-Actions-Img]:https://github.com/linianhui/div/workflows/test/badge.svg
+[GitHub-Actions-Url]:https://github.com/linianhui/div/actions
