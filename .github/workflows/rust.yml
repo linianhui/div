@@ -9,7 +9,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
-        rust: [1.37.0]
+        rust: [1.38.0]
 
     steps:
     - uses: actions/checkout@v1
