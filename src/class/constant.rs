@@ -57,7 +57,7 @@ impl Constant {
         }
         let mut i = 1usize;
         while i < constant_pool_count {
-            let constant_tag_raw = reader.read_u8();
+            let constant_tag_raw = reader.read_u8_and_update_position();
             let constant_tag = ConstantTag::from(constant_tag_raw);
             pool[i] = Constant::new(constant_tag, reader);
             if ConstantTag::Long == constant_tag || ConstantTag::Double == constant_tag {

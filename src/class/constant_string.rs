@@ -20,7 +20,7 @@ impl ConstantString {
     pub fn new(reader: &mut U8Reader) -> ConstantString {
         ConstantString {
             tag: ConstantTag::String,
-            string_index: reader.read_u16(),
+            string_index: reader.read_u16_and_update_position(),
         }
     }
 }

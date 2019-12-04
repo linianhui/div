@@ -22,8 +22,8 @@ impl ConstantInterfaceMethodRef {
     pub fn new(reader: &mut U8Reader) -> ConstantInterfaceMethodRef {
         ConstantInterfaceMethodRef {
             tag: ConstantTag::InterfaceMethodRef,
-            class_index: reader.read_u16(),
-            name_and_type_index: reader.read_u16(),
+            class_index: reader.read_u16_and_update_position(),
+            name_and_type_index: reader.read_u16_and_update_position(),
         }
     }
 }

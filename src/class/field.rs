@@ -26,10 +26,10 @@ pub struct Field {
 
 impl Field {
     pub fn new(reader: &mut U8Reader) -> Field {
-        let access_flags = FieldAccessFlags::flags(reader.read_u16());
-        let name_index = reader.read_u16();
-        let descriptor_index = reader.read_u16();
-        let attributes_count = reader.read_u16();
+        let access_flags = FieldAccessFlags::flags(reader.read_u16_and_update_position());
+        let name_index = reader.read_u16_and_update_position();
+        let descriptor_index = reader.read_u16_and_update_position();
+        let attributes_count = reader.read_u16_and_update_position();
         let attributes = Attribute::vec(attributes_count as usize, reader);
 
         Field {

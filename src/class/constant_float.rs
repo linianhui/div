@@ -20,7 +20,7 @@ impl ConstantFloat {
     pub fn new(reader: &mut U8Reader) -> ConstantFloat {
         ConstantFloat {
             tag: ConstantTag::Float,
-            bytes: reader.read_f32(),
+            bytes: reader.read_f32_and_update_position(),
         }
     }
 }

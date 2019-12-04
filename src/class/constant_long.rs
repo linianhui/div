@@ -21,7 +21,7 @@ impl ConstantLong {
     pub fn new(reader: &mut U8Reader) -> ConstantLong {
         ConstantLong {
             tag: ConstantTag::Long,
-            value: reader.read_i64(),
+            value: reader.read_i64_and_update_position(),
         }
     }
 }

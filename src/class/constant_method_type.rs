@@ -20,7 +20,7 @@ impl ConstantMethodType {
     pub fn new(reader: &mut U8Reader) -> ConstantMethodType {
         ConstantMethodType {
             tag: ConstantTag::MethodType,
-            descriptor_index: reader.read_u16(),
+            descriptor_index: reader.read_u16_and_update_position(),
         }
     }
 }

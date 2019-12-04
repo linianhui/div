@@ -22,8 +22,8 @@ impl ConstantDynamic {
     pub fn new(reader: &mut U8Reader) -> ConstantDynamic {
         ConstantDynamic {
             tag: ConstantTag::Dynamic,
-            bootstrap_method_attr_index: reader.read_u16(),
-            name_and_type_index: reader.read_u16(),
+            bootstrap_method_attr_index: reader.read_u16_and_update_position(),
+            name_and_type_index: reader.read_u16_and_update_position(),
         }
     }
 }

@@ -20,7 +20,7 @@ impl ConstantClass {
     pub fn new(reader: &mut U8Reader) -> ConstantClass {
         ConstantClass {
             tag: ConstantTag::Class,
-            name_index: reader.read_u16(),
+            name_index: reader.read_u16_and_update_position(),
         }
     }
 }
