@@ -9,5 +9,5 @@ fn test_constant_package() {
     let constant_package = ConstantPackage::new(&mut u8_reader);
     assert_eq!(ConstantTag::Package, constant_package.tag);
     assert_eq!(21, constant_package.name_index);
-    assert_eq!(2, u8_reader.offset);
+    assert_eq!(2, u8_reader.position);
 }

@@ -9,5 +9,5 @@ fn test_constant_utf8() {
     let constant_utf8 = ConstantUtf8::new(&mut u8_reader);
     assert_eq!(ConstantTag::Utf8, constant_utf8.tag);
     assert_eq!(6, constant_utf8.length);
-    assert_eq!(8, u8_reader.offset);
+    assert_eq!(8, u8_reader.position);
 }

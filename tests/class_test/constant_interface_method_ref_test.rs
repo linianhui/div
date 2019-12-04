@@ -13,5 +13,5 @@ fn test_constant_interface_method_ref() {
     );
     assert_eq!(20, constant_interface_method_ref.class_index);
     assert_eq!(21, constant_interface_method_ref.name_and_type_index);
-    assert_eq!(4, u8_reader.offset);
+    assert_eq!(4, u8_reader.position);
 }

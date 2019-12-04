@@ -10,5 +10,5 @@ fn test_constant_invoke_dynamic() {
     assert_eq!(ConstantTag::InvokeDynamic, constant_invoke_dynamic.tag);
     assert_eq!(18, constant_invoke_dynamic.bootstrap_method_attr_index);
     assert_eq!(19, constant_invoke_dynamic.name_and_type_index);
-    assert_eq!(4, u8_reader.offset);
+    assert_eq!(4, u8_reader.position);
 }

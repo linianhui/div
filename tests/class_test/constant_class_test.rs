@@ -9,5 +9,5 @@ fn test_constant_class() {
     let constant_class = ConstantClass::new(&mut u8_reader);
     assert_eq!(ConstantTag::Class, constant_class.tag);
     assert_eq!(21, constant_class.name_index);
-    assert_eq!(2, u8_reader.offset);
+    assert_eq!(2, u8_reader.position);
 }

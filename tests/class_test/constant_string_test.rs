@@ -9,5 +9,5 @@ fn test_constant_string() {
     let constant_string = ConstantString::new(&mut u8_reader);
     assert_eq!(ConstantTag::String, constant_string.tag);
     assert_eq!(21, constant_string.string_index);
-    assert_eq!(2, u8_reader.offset);
+    assert_eq!(2, u8_reader.position);
 }

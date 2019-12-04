@@ -10,5 +10,5 @@ fn test_constant_name_and_type() {
     assert_eq!(ConstantTag::NameAndType, constant_name_and_type.tag);
     assert_eq!(18, constant_name_and_type.name_index);
     assert_eq!(19, constant_name_and_type.descriptor_index);
-    assert_eq!(4, u8_reader.offset);
+    assert_eq!(4, u8_reader.position);
 }

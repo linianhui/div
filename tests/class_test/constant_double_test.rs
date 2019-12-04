@@ -9,5 +9,5 @@ fn test_constant_double() {
     let constant_double = ConstantDouble::new(&mut u8_reader);
     assert_eq!(ConstantTag::Double, constant_double.tag);
     assert_eq!(3.1415_9265_3579_3978_f64, constant_double.value);
-    assert_eq!(8, u8_reader.offset);
+    assert_eq!(8, u8_reader.position);
 }

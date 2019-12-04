@@ -9,5 +9,5 @@ fn test_constant_float() {
     let constant_float = ConstantFloat::new(&mut u8_reader);
     assert_eq!(ConstantTag::Float, constant_float.tag);
     assert_eq!(3.1415_9265_f32, constant_float.bytes);
-    assert_eq!(4, u8_reader.offset);
+    assert_eq!(4, u8_reader.position);
 }
