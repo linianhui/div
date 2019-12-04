@@ -51,22 +51,22 @@ pub struct ClassFile {
 impl ClassFile {
     pub fn new(bytes: &[u8]) -> ClassFile {
         let mut reader = U8Reader::new(bytes);
-        let magic = reader.read_u32_and_update_position();
-        let minor_version = reader.read_u16_and_update_position();
-        let major_version = reader.read_u16_and_update_position();
-        let constant_pool_count = reader.read_u16_and_update_position();
+        let magic = reader.read_u32();
+        let minor_version = reader.read_u16();
+        let major_version = reader.read_u16();
+        let constant_pool_count = reader.read_u16();
         let constant_pool = Constant::vec(constant_pool_count as usize, &mut reader);
-        let access_flags_raw = reader.read_u16_and_update_position();
+        let access_flags_raw = reader.read_u16();
         let access_flags = ClassAccessFlags::flags(access_flags_raw);
-        let this_class = reader.read_u16_and_update_position();
-        let super_class = reader.read_u16_and_update_position();
-        let interfaces_count = reader.read_u16_and_update_position();
-        let interfaces = reader.read_u16_vec_and_update_position(interfaces_count as usize);
-        let fields_count = reader.read_u16_and_update_position();
+        let this_class = reader.read_u16();
+        let super_class = reader.read_u16();
+        let interfaces_count = reader.read_u16();
+        let interfaces = reader.read_u16_vec(interfaces_count as usize);
+        let fields_count = reader.read_u16();
         let fields = Field::vec(fields_count as usize, &mut reader);
-        let methods_count = reader.read_u16_and_update_position();
+        let methods_count = reader.read_u16();
         let methods = Method::vec(methods_count as usize, &mut reader);
-        let attributes_count = reader.read_u16_and_update_position();
+        let attributes_count = reader.read_u16();
         let attributes = Attribute::vec(attributes_count as usize, &mut reader);
 
         ClassFile {

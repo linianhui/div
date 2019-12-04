@@ -22,8 +22,8 @@ impl ConstantMethodRef {
     pub fn new(reader: &mut U8Reader) -> ConstantMethodRef {
         ConstantMethodRef {
             tag: ConstantTag::MethodRef,
-            class_index: reader.read_u16_and_update_position(),
-            name_and_type_index: reader.read_u16_and_update_position(),
+            class_index: reader.read_u16(),
+            name_and_type_index: reader.read_u16(),
         }
     }
 }

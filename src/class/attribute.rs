@@ -19,9 +19,9 @@ pub struct Attribute {
 
 impl Attribute {
     pub fn new(reader: &mut U8Reader) -> Attribute {
-        let attribute_name_index = reader.read_u16_and_update_position();
-        let attribute_length = reader.read_u32_and_update_position();
-        let bytes = reader.read_bytes_and_update_position(attribute_length as usize);
+        let attribute_name_index = reader.read_u16();
+        let attribute_length = reader.read_u32();
+        let bytes = reader.read_bytes(attribute_length as usize);
 
         Attribute {
             attribute_name_index,

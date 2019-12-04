@@ -22,8 +22,8 @@ impl ConstantNameAndType {
     pub fn new(reader: &mut U8Reader) -> ConstantNameAndType {
         ConstantNameAndType {
             tag: ConstantTag::NameAndType,
-            name_index: reader.read_u16_and_update_position(),
-            descriptor_index: reader.read_u16_and_update_position(),
+            name_index: reader.read_u16(),
+            descriptor_index: reader.read_u16(),
         }
     }
 }

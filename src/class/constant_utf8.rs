@@ -21,8 +21,8 @@ pub struct ConstantUtf8 {
 
 impl ConstantUtf8 {
     pub fn new(reader: &mut U8Reader) -> ConstantUtf8 {
-        let length = reader.read_u16_and_update_position();
-        let bytes = reader.read_bytes_and_update_position(length.try_into().unwrap());
+        let length = reader.read_u16();
+        let bytes = reader.read_bytes(length.try_into().unwrap());
         ConstantUtf8 {
             tag: ConstantTag::Utf8,
             length: length,

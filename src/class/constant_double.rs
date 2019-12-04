@@ -21,7 +21,7 @@ impl ConstantDouble {
     pub fn new(reader: &mut U8Reader) -> ConstantDouble {
         ConstantDouble {
             tag: ConstantTag::Double,
-            value: reader.read_f64_and_update_position(),
+            value: reader.read_f64(),
         }
     }
 }

@@ -20,7 +20,7 @@ impl ConstantInteger {
     pub fn new(reader: &mut U8Reader) -> ConstantInteger {
         ConstantInteger {
             tag: ConstantTag::Integer,
-            bytes: reader.read_i32_and_update_position(),
+            bytes: reader.read_i32(),
         }
     }
 }
