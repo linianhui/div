@@ -1,13 +1,13 @@
 #[derive(Debug)]
 pub struct U8Reader {
-    pub data: Box<[u8]>,
+    pub bytes: Box<[u8]>,
     pub position: usize,
 }
 
 impl U8Reader {
     pub fn new(bytes: &[u8]) -> U8Reader {
         U8Reader {
-            data: Box::from(bytes),
+            bytes: Box::from(bytes),
             position: 0,
         }
     }
@@ -31,13 +31,13 @@ impl U8Reader {
     pub fn read_u8(&mut self) -> u8 {
         let begin = self.position;
         self.position += 1;
-        self.data[begin]
+        self.bytes[begin]
     }
 
     pub fn read_u16(&mut self) -> u16 {
         let begin = self.position;
         self.position += 2;
-        u16::from_be_bytes([self.data[begin], self.data[begin + 1]])
+        u16::from_be_bytes([self.bytes[begin], self.bytes[begin + 1]])
     }
 
     pub fn read_u16_vec(&mut self, count: usize) -> Vec<u16> {
@@ -54,10 +54,10 @@ impl U8Reader {
         let begin = self.position;
         self.position += 4;
         u32::from_be_bytes([
-            self.data[begin],
-            self.data[begin + 1],
-            self.data[begin + 2],
-            self.data[begin + 3],
+            self.bytes[begin],
+            self.bytes[begin + 1],
+            self.bytes[begin + 2],
+            self.bytes[begin + 3],
         ])
     }
 
@@ -65,14 +65,14 @@ impl U8Reader {
         let begin = self.position;
         self.position += 8;
         u64::from_be_bytes([
-            self.data[begin],
-            self.data[begin + 1],
-            self.data[begin + 2],
-            self.data[begin + 3],
-            self.data[begin + 4],
-            self.data[begin + 5],
-            self.data[begin + 6],
-            self.data[begin + 7],
+            self.bytes[begin],
+            self.bytes[begin + 1],
+            self.bytes[begin + 2],
+            self.bytes[begin + 3],
+            self.bytes[begin + 4],
+            self.bytes[begin + 5],
+            self.bytes[begin + 6],
+            self.bytes[begin + 7],
         ])
     }
 
@@ -80,6 +80,6 @@ impl U8Reader {
         let begin = self.position;
         let end = begin + length;
         self.position = end;
-        &self.data[begin..end]
+        &self.bytes[begin..end]
     }
 }
