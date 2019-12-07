@@ -25,8 +25,8 @@ mod field_access_flags;
 mod method;
 mod method_access_flags;
 mod method_handle_reference_kind;
-mod u8_reader;
 mod modified_utf8;
+mod u8_reader;
 
 pub use attribute::Attribute;
 pub use class_access_flags::ClassAccessFlags;
@@ -55,5 +55,5 @@ pub use field_access_flags::FieldAccessFlags;
 pub use method::Method;
 pub use method_access_flags::MethodAccessFlags;
 pub use method_handle_reference_kind::MethodHandleReferenceKind;
-pub use u8_reader::U8Reader;
 pub use modified_utf8::ModifiedUtf8;
+pub use u8_reader::U8Reader;
