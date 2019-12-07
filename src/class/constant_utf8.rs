@@ -9,6 +9,7 @@ CONSTANT_Utf8_info {
 */
 
 use crate::class::ConstantTag;
+use crate::class::ModifiedUtf8;
 use crate::class::U8Reader;
 use std::convert::TryInto;
 
@@ -16,7 +17,7 @@ use std::convert::TryInto;
 pub struct ConstantUtf8 {
     pub tag: ConstantTag,
     pub length: u16,
-    pub bytes: Box<[u8]>,
+    pub string: String,
 }
 
 impl ConstantUtf8 {
@@ -26,7 +27,7 @@ impl ConstantUtf8 {
         ConstantUtf8 {
             tag: ConstantTag::Utf8,
             length: length,
-            bytes: Box::from(bytes),
+            string: ModifiedUtf8::to_string(bytes),
         }
     }
 }
