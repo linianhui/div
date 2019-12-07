@@ -30,7 +30,7 @@ impl Attribute {
         }
     }
 
-    pub fn vec(attribute_count: usize, reader: &mut U8Reader) -> Vec<Attribute> {
+    pub fn vec(reader: &mut U8Reader, attribute_count: usize) -> Vec<Attribute> {
         let mut attributes: Vec<Attribute> = Vec::with_capacity(attribute_count);
         for _i in 0..attribute_count {
             let attribute = Attribute::new(reader);

@@ -55,7 +55,7 @@ impl ClassFile {
         let minor_version = reader.read_u16();
         let major_version = reader.read_u16();
         let constant_pool_count = reader.read_u16();
-        let constant_pool = Constant::vec(constant_pool_count as usize, &mut reader);
+        let constant_pool = Constant::vec(&mut reader, constant_pool_count as usize);
         let access_flags_raw = reader.read_u16();
         let access_flags = ClassAccessFlags::flags(access_flags_raw);
         let this_class = reader.read_u16();
@@ -63,11 +63,11 @@ impl ClassFile {
         let interfaces_count = reader.read_u16();
         let interfaces = reader.read_u16_vec(interfaces_count as usize);
         let fields_count = reader.read_u16();
-        let fields = Field::vec(fields_count as usize, &mut reader);
+        let fields = Field::vec(&mut reader, fields_count as usize);
         let methods_count = reader.read_u16();
-        let methods = Method::vec(methods_count as usize, &mut reader);
+        let methods = Method::vec(&mut reader, methods_count as usize);
         let attributes_count = reader.read_u16();
-        let attributes = Attribute::vec(attributes_count as usize, &mut reader);
+        let attributes = Attribute::vec(&mut reader, attributes_count as usize);
 
         ClassFile {
             magic,

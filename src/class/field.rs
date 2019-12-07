@@ -30,7 +30,7 @@ impl Field {
         let name_index = reader.read_u16();
         let descriptor_index = reader.read_u16();
         let attributes_count = reader.read_u16();
-        let attributes = Attribute::vec(attributes_count as usize, reader);
+        let attributes = Attribute::vec(reader, attributes_count as usize);
 
         Field {
             access_flags,
@@ -41,7 +41,7 @@ impl Field {
         }
     }
 
-    pub fn vec(field_count: usize, reader: &mut U8Reader) -> Vec<Field> {
+    pub fn vec(reader: &mut U8Reader, field_count: usize) -> Vec<Field> {
         let mut fields: Vec<Field> = Vec::with_capacity(field_count);
         for _i in 0..field_count {
             let field = Field::new(reader);

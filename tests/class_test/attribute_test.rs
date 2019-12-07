@@ -8,7 +8,7 @@ fn test_attribute_vec() {
         0x00, 0x38, 0x00, 0x00, 0x00, 0x02, 0x00, 0x39, 0x00, 0x3A, 0x00, 0x00, 0x00, 0x02, 0x00,
         0x3B,
     ]);
-    let attributes = Attribute::vec(2, &mut u8_reader);
+    let attributes = Attribute::vec(&mut u8_reader, 2);
 
     assert_eq!(2, attributes.len());
     assert_eq!(56, attributes[0].attribute_name_index);

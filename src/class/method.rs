@@ -30,7 +30,7 @@ impl Method {
         let name_index = reader.read_u16();
         let descriptor_index = reader.read_u16();
         let attributes_count = reader.read_u16();
-        let attributes = Attribute::vec(attributes_count as usize, reader);
+        let attributes = Attribute::vec(reader, attributes_count as usize);
 
         Method {
             access_flags,
@@ -41,7 +41,7 @@ impl Method {
         }
     }
 
-    pub fn vec(method_count: usize, reader: &mut U8Reader) -> Vec<Method> {
+    pub fn vec(reader: &mut U8Reader, method_count: usize) -> Vec<Method> {
         let mut methods: Vec<Method> = Vec::with_capacity(method_count);
         for _i in 0..method_count {
             let method = Method::new(reader);

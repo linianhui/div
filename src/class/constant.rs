@@ -24,7 +24,7 @@ pub enum Constant {
 }
 
 impl Constant {
-    pub fn new(constant_tag: ConstantTag, reader: &mut U8Reader) -> Constant {
+    pub fn new(reader: &mut U8Reader, constant_tag: ConstantTag) -> Constant {
         match constant_tag {
             ConstantTag::Utf8 => Constant::Utf8(ConstantUtf8::new(reader)),
             ConstantTag::Integer => Constant::Integer(ConstantInteger::new(reader)),
@@ -50,7 +50,7 @@ impl Constant {
         }
     }
 
-    pub fn vec(constant_pool_count: usize, reader: &mut U8Reader) -> Vec<Constant> {
+    pub fn vec(reader: &mut U8Reader, constant_pool_count: usize) -> Vec<Constant> {
         let mut pool: Vec<Constant> = Vec::with_capacity(constant_pool_count);
         unsafe {
             pool.set_len(constant_pool_count);
@@ -59,7 +59,7 @@ impl Constant {
         while i < constant_pool_count {
             let constant_tag_raw = reader.read_u8();
             let constant_tag = ConstantTag::from(constant_tag_raw);
-            pool[i] = Constant::new(constant_tag, reader);
+            pool[i] = Constant::new(reader, constant_tag);
             if ConstantTag::Long == constant_tag || ConstantTag::Double == constant_tag {
                 i = i + 1;
             }
