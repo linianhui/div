@@ -17,7 +17,7 @@ use std::convert::TryInto;
 pub struct ConstantUtf8 {
     pub tag: ConstantTag,
     pub length: u16,
-    pub string: String,
+    pub value: String,
 }
 
 impl ConstantUtf8 {
@@ -27,7 +27,7 @@ impl ConstantUtf8 {
         ConstantUtf8 {
             tag: ConstantTag::Utf8,
             length: length,
-            string: ModifiedUtf8::to_string(bytes),
+            value: ModifiedUtf8::to_string(bytes),
         }
     }
 }

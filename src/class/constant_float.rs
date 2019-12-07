@@ -13,14 +13,14 @@ use crate::class::U8Reader;
 #[derive(Debug)]
 pub struct ConstantFloat {
     pub tag: ConstantTag,
-    pub bytes: f32,
+    pub value: f32,
 }
 
 impl ConstantFloat {
     pub fn new(reader: &mut U8Reader) -> ConstantFloat {
         ConstantFloat {
             tag: ConstantTag::Float,
-            bytes: reader.read_f32(),
+            value: reader.read_f32(),
         }
     }
 }
