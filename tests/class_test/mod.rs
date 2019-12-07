@@ -24,4 +24,5 @@ mod field_test;
 mod method_access_flags_test;
 mod method_handle_reference_kind_test;
 mod method_test;
+mod modified_utf8_test;
 mod u8_reader_test;
