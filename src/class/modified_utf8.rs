@@ -6,7 +6,7 @@ impl ModifiedUtf8 {
     pub fn to_string(modified_utf8_bytes: &[u8]) -> String {
         let end_index = modified_utf8_bytes.len() - 1;
         let mut u16s: Vec<u16> = Vec::with_capacity(end_index + 1);
-        for mut i in 0..end_index {
+        for mut i in 0..=end_index {
             let x = modified_utf8_bytes[i] as u16;
             // 0_xxxxxx
             if x >> 7 == 0b_0000000_0 {
