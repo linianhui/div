@@ -9,7 +9,7 @@
             "name": "Rust Debug",
             "type": "cppvsdbg",
             "request": "launch",
-            "program": "${workspaceRoot}/target/debug/deps/lib-39533e18d3c2376f.exe",
+            "program": "${workspaceRoot}/target/debug/deps/lib-8931a0c6302dfb94.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
