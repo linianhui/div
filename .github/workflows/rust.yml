@@ -8,7 +8,7 @@ jobs:
 
     container:
       # https://hub.docker.com/_/rust
-      image: rust:1.46
+      image: rust:1.51
 
     steps:
       - name: git checkout
